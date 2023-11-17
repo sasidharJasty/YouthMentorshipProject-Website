@@ -1,7 +1,7 @@
 
 from django.contrib.auth import get_user_model
 User = get_user_model()
-
+from .email_sender import *
 from django.contrib.auth import authenticate
 from .models import Role, Logs
 from rest_framework import viewsets
@@ -9,7 +9,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import permissions
 from .serializers import UserSerializer, RolesSerializer, LogsSerializer
-
+from django.core.mail import send_mail
+import smtplib
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -61,7 +62,8 @@ class SignupView(APIView):
             return Response({'error': 'Username already taken'}, status=status.HTTP_400_BAD_REQUEST)
 
         user = User.objects.create_user(username=username, email=email ,password=password)
-
+        main()
+        gmail_send_message(email, "Welcome to YMP", "Your YMP Id is: " + str(user.ymp_id))
         return Response({'message': 'Signup successful'}, status=status.HTTP_201_CREATED)
 
 class LoginView(APIView):
