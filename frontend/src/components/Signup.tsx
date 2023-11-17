@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import login from "./login.png";
-import vect from "./Vector.png";
+import "./Signup.css";
 
 const Signup: React.FC = () => {
   const [username, setUsername] = useState("");
@@ -30,7 +30,7 @@ const Signup: React.FC = () => {
 
   return (
     <div className="flex justify-center content-center w-screen h-screen ">
-      <div className="w-auto h-auto bg-slate-100  rounded-lg mx-5 my-12 shadow-2xl grid grid-cols-2 text-black">
+      <div className="w-auto h-auto bg-slate-100  rounded-lg mx-5 my-12  grid grid-cols-2 text-black">
         <div className="justify-center content-center text-center  ">
           <img className=" m-1 " src={login}></img>
         </div>
@@ -38,7 +38,7 @@ const Signup: React.FC = () => {
           <form className="mb-10 w-full" onSubmit={handleSignup}>
             <div>
               <div className="justify-center content-center text-center  ">
-                <img className=" m-1 " src={vect}></img>
+                <h1 className="font-extrabold text-3xl logo mb-10 ">YMP</h1>
               </div>
               <h1 className="text-5xl mb-10 font-black">Signup</h1>
               <p className="text-gray-400 font-medium mb-10">
@@ -60,7 +60,7 @@ const Signup: React.FC = () => {
                 Email
               </p>
               <input
-                className="mb-3 rounded-md py-2 w-1/2 pl-3"
+                className="mb-3 rounded-md py-2 w-1/2 pl-3 boo"
                 type="text"
                 placeholder="Enter your Email"
                 value={email}
@@ -81,13 +81,13 @@ const Signup: React.FC = () => {
             </div>
             <p className="">
               {" "}
-              Don't have an account{" "}
-              <a className="text-blue-500" href="/">
-                sign up!
+              Have an account?{" "}
+              <a className="text-blue-500" href="/login/">
+                Login!
               </a>
             </p>
             <button
-              className="bg-blue-400 px-20 py-1 mt-3 rounded-md text-black"
+              className="bg-blue-400 px-20 py-1 mt-3 rounded-md shadow-2xl text-black"
               type="submit"
             >
               Signup
