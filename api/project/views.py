@@ -60,16 +60,16 @@ class SignupView(APIView):
         if User.objects.filter(username=username).exists():
             return Response({'error': 'Username already taken'}, status=status.HTTP_400_BAD_REQUEST)
 
-        user = User.objects.create_user(username=username, email=email ,password=password)
         while True:
             num=str(random.randint(1, 899999)+100000)
-            q=User.objects.filter(ymp_id=num)
-            if q == 0:
+            q=list(User.objects.filter(ymp_id=num))
+            print(len(q))
+            if len(q) ==0:
                 break
             else:
                 continue
-        user.ymp_id=num
-        user.save()
+
+        user = User.objects.create_user(username=username, email=email ,password=password,ymp_id=num)
         send_email(email,"Welcome to YMP", "Your YMP Id is: " + str(user.ymp_id))
         return Response({'message': 'Signup successful'}, status=status.HTTP_201_CREATED)
 
