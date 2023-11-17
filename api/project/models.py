@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import gettext_lazy as _
 import random
-from .rid import create_new_ref_number
+
 
 class CustomUserManager(BaseUserManager):
     """
@@ -39,7 +39,7 @@ class CustomUserManager(BaseUserManager):
 
 class CustomUser(AbstractUser):
     email = models.EmailField(_("email address"), unique=True)
-    ymp_id=models.CharField(max_length = 6,  unique=True, default=create_new_ref_number())
+    ymp_id=models.CharField(max_length = 6,  unique=True, default=0)
     date_joined=models.DateTimeField(default=timezone.now)
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []

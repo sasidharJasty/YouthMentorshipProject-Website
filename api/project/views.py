@@ -9,9 +9,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import permissions
 from .serializers import UserSerializer, RolesSerializer, LogsSerializer
-from django.core.mail import send_mail
 import smtplib
-
+import random
 class UserViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
@@ -62,8 +61,16 @@ class SignupView(APIView):
             return Response({'error': 'Username already taken'}, status=status.HTTP_400_BAD_REQUEST)
 
         user = User.objects.create_user(username=username, email=email ,password=password)
-        main()
-        gmail_send_message(email, "Welcome to YMP", "Your YMP Id is: " + str(user.ymp_id))
+        while True:
+            num=str(random.randint(1, 899999)+100000)
+            q=User.objects.filter(ymp_id=num)
+            if q == 0:
+                break
+            else:
+                continue
+        user.ymp_id=num
+        user.save()
+        send_email(email,"Welcome to YMP", "Your YMP Id is: " + str(user.ymp_id))
         return Response({'message': 'Signup successful'}, status=status.HTTP_201_CREATED)
 
 class LoginView(APIView):
