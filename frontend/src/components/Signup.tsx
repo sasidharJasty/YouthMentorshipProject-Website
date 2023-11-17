@@ -29,8 +29,8 @@ const Signup: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center content-center w-screen h-screen ">
-      <div className="w-auto h-auto bg-slate-100  rounded-lg mx-5 my-12  grid grid-cols-2 text-black">
+    <div className="flex justify-center content-center w-screen h-screen bg-slate-100  ">
+      <div className="w-auto h-auto   rounded-lg mx-5 my-12  grid grid-cols-2 text-black">
         <div className="justify-center content-center text-center  ">
           <img className=" m-1 " src={login}></img>
         </div>
