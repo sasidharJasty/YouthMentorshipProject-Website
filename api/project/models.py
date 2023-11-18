@@ -65,3 +65,12 @@ class Logs(models.Model):
     hours = models.IntegerField(max_length=7)
     description = models.TextField()
     ordinal = models.IntegerField() 
+
+class HourRecord(models.Model):
+    ymp_id=models.CharField(max_length = 6, default=0)
+    hours = models.IntegerField()
+    work_description = models.CharField(max_length=500)
+    date = models.DateField()
+
+    def __str__(self):
+        return self.ymp_id

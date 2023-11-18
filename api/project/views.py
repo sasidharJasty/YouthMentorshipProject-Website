@@ -1,7 +1,5 @@
-
 from django.contrib.auth import get_user_model
 User = get_user_model()
-from .email_sender import *
 from django.contrib.auth import authenticate
 from .models import Role, Logs
 from rest_framework import viewsets
@@ -11,6 +9,11 @@ from rest_framework import permissions
 from .serializers import UserSerializer, RolesSerializer, LogsSerializer
 import smtplib
 import random
+from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+from api.settings import EMAIL_HOST_USER
+import socket
+socket.getaddrinfo('localhost', 5173)
 class UserViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
@@ -70,7 +73,8 @@ class SignupView(APIView):
                 continue
 
         user = User.objects.create_user(username=username, email=email ,password=password,ymp_id=num)
-        send_email(email,"Welcome to YMP", "Your YMP Id is: " + str(user.ymp_id))
+        send_mail("Welcome To YMP!", "Your YMP Id is: " + user.ymp_id, EMAIL_HOST_USER, [email], fail_silently=False)
+        #send_email(email,"Welcome to YMP", "Your YMP Id is: " + str(user.ymp_id))
         return Response({'message': 'Signup successful'}, status=status.HTTP_201_CREATED)
 
 class LoginView(APIView):
