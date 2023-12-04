@@ -1,0 +1,10 @@
+.logo {
+  background: -webkit-linear-gradient(to right, #3e3bd4, #a46bec);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-color: linear-gradient(to right, #3e3bd4, #a46bec);
+}
+
+.verticalLine {
+  border-right: thin solid #e5d4ff;
+}

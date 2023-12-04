@@ -3,11 +3,18 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import login from "./login.png";
 import "./Signup.css";
+import ResponsiveAppBar from "./Nav2";
+interface Props {
+  handleLogin: (val: { User: string; Username: string; Id: number }) => void;
+}
 
-const Signup: React.FC = () => {
+function Signup(props: Props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setemail] = useState("");
+  const [id, setid] = useState(-999);
+  const [lgf, setlgf] = useState(false);
+  const [err, seterr] = useState("");
   const history = useNavigate();
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,18 +26,33 @@ const Signup: React.FC = () => {
         password: password,
       });
 
-      console.log("Signup successful!", response.data.message);
       history("/");
+      history("/");
+      seterr("");
+      setlgf(false);
+      props.handleLogin(response.data);
+      localStorage.setItem("Data", JSON.stringify(response.data));
+      setid(response.data["Id"]);
 
       // Redirect or perform other actions on successful signup
     } catch (error: any) {
-      console.error("Signup failed:", error.response.data);
+      seterr(error.response.data["error"]);
+      console.log(error.response.data["error"]);
+      props.handleLogin({ User: "False", Username: "False", Id: -999 });
+      setlgf(true);
     }
   };
 
   return (
-    <div className="flex justify-center content-center w-screen h-screen bg-slate-100  ">
-      <div className="w-auto h-auto   rounded-lg mx-5 my-12  grid grid-cols-2 text-black">
+    <div className="fixed justify-center content-center w-screen h-screen bg-slate-100  ">
+      <ResponsiveAppBar
+        Username={{
+          User: email,
+          Username: username,
+          Id: id,
+        }}
+      />
+      <div className="w-auto h-auto   rounded-lg  grid grid-cols-2 text-black">
         <div className="justify-center content-center text-center  ">
           <img className=" m-1 " src={login}></img>
         </div>
@@ -44,6 +66,9 @@ const Signup: React.FC = () => {
               <p className="text-gray-400 font-medium mb-10">
                 Sign up for YMP with your information
               </p>
+              {lgf === true ? (
+                <p className="text-red-600 text-lg font-bold mb-2">{err}</p>
+              ) : null}
               <p className="w-1/2 ml-10 mb-1 text-gray-700 font-semibold">
                 Username
               </p>
@@ -97,6 +122,6 @@ const Signup: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Signup;

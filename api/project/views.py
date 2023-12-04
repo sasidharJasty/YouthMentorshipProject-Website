@@ -62,20 +62,23 @@ class SignupView(APIView):
 
         if User.objects.filter(username=username).exists():
             return Response({'error': 'Username already taken'}, status=status.HTTP_400_BAD_REQUEST)
+        elif User.objects.filter(email=email).exists():
+            return Response({'error': 'Email already taken'}, status=status.HTTP_400_BAD_REQUEST)
+        else:
 
-        while True:
-            num=str(random.randint(1, 899999)+100000)
-            q=list(User.objects.filter(ymp_id=num))
-            print(len(q))
-            if len(q) ==0:
-                break
-            else:
-                continue
+            while True:
+                num=str(random.randint(1, 899999)+100000)
+                q=list(User.objects.filter(ymp_id=num))
+                print(len(q))
+                if len(q) ==0:
+                    break
+                else:
+                    continue
 
-        user = User.objects.create_user(username=username, email=email ,password=password,ymp_id=num)
-        send_mail("Welcome To YMP!", "Your YMP Id is: " + user.ymp_id, EMAIL_HOST_USER, [email], fail_silently=False)
-        #send_email(email,"Welcome to YMP", "Your YMP Id is: " + str(user.ymp_id))
-        return Response({'message': 'Signup successful'}, status=status.HTTP_201_CREATED)
+            user = User.objects.create_user(username=username, email=email ,password=password,ymp_id=num)
+            send_mail("Welcome To YMP!", "Your YMP Id is: " + user.ymp_id, EMAIL_HOST_USER, [email], fail_silently=False)
+            #send_email(email,"Welcome to YMP", "Your YMP Id is: " + str(user.ymp_id))
+            return Response({'User': username,"Username":user.username,  'Id':user.ymp_id})
 
 class LoginView(APIView):
     permission_classes = [AllowAny]
@@ -92,7 +95,7 @@ class LoginView(APIView):
 
         if user is not None:
             login(request, user)
-            return Response({'message': 'Login successful'})
+            return Response({'User': username,"Username":user.username, 'Id':user.ymp_id})
         else:
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
