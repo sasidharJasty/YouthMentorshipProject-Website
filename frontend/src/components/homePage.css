@@ -8,3 +8,40 @@
 .verticalLine {
   border-right: thin solid #e5d4ff;
 }
+.Img-bg{
+  background-image: url("https://i.ibb.co/6y0dx0Z/Whats-App-Image-2023-12-03-at-19-19-48-98168732.jpg");
+  margin-top: 25vh;
+}
+.img{
+  right:0;
+  margin-top: 35vh;
+}
+.TitleText{
+  color: #4D1297;
+  line-height: 3.8;
+
+}
+
+.title-container{
+  top:20vh;
+}
+
+.girlslearn{
+  top:20vh;
+}
+.Title-btn{
+  background-color: #6659F4;
+  padding:18px;
+  border-radius:18px;
+  padding-left: 35px;
+  padding-right: 35px;
+  color: white;
+  left:14vw;
+}
+
+.Carousel{
+  top:550px;
+  min-width: 95vw;
+  align-items: center;
+  justify-content: center;
+}

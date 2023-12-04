@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./homePage.css";
+import axios from "axios";
 
 interface Prop {
   Username: { User: string; Username: string; Id: number };
@@ -11,6 +12,18 @@ function ResponsiveAppBar(props: Prop) {
   const handleOpen = () => {
     setSelect((Selects) => !Selects);
   };
+  async function logout() {
+    const response = await axios.post("http://127.0.0.1:8000/logout/");
+    localStorage.setItem(
+      "Data",
+      JSON.stringify({
+        User: "false",
+        Username: "false",
+        Id: -999,
+      })
+    );
+    const val = JSON.parse(localStorage.getItem("Data") || "{}");
+  }
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 shadow-xl top-0 fixed w-screen mb-40">
@@ -56,7 +69,7 @@ function ResponsiveAppBar(props: Prop) {
             aria-expanded="false"
             data-dropdown-toggle="user-dropdown"
             data-dropdown-placement="bottom"
-            onClick={handleOpen}
+
           >
             <span className="sr-only">Open user menu</span>
             <a className="">Donate</a>
@@ -64,7 +77,7 @@ function ResponsiveAppBar(props: Prop) {
           {Selects === true && props.Username["Id"] !== -999 ? (
             <>
               {" "}
-              <div className="z-50 absolute top-2 my-10 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
+              <div className=" absolute top-5 my-10 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-xl dark:bg-gray-700 dark:divide-gray-600">
                 <div className="px-4 py-3">
                   <span className="block text-sm text-gray-900 dark:text-white">
                     {props.Username["User"]}
@@ -100,7 +113,8 @@ function ResponsiveAppBar(props: Prop) {
                   </li>
                   <li>
                     <a
-                      href="/logout/"
+                      href="/"
+                      onClick={logout}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                     >
                       Sign out
