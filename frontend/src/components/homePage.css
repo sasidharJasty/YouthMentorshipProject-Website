@@ -8,40 +8,77 @@
 .verticalLine {
   border-right: thin solid #e5d4ff;
 }
-.Img-bg{
+.Img-bg {
   background-image: url("https://i.ibb.co/6y0dx0Z/Whats-App-Image-2023-12-03-at-19-19-48-98168732.jpg");
   margin-top: 25vh;
 }
-.img{
-  right:0;
-  margin-top: 35vh;
+.img {
+  margin-top: 15vh;
 }
-.TitleText{
-  color: #4D1297;
-  line-height: 3.8;
-
-}
-
-.title-container{
-  top:20vh;
+.TitleText {
+  color: #4d1297;
+  font-size: 9vh;
+  line-height: 1.2;
 }
 
-.girlslearn{
-  top:20vh;
+.title-container {
+  position: relative;
 }
-.Title-btn{
-  background-color: #6659F4;
-  padding:18px;
-  border-radius:18px;
+
+.girlslearn {
+  width: 60%;
+}
+.Title-btn {
+  background-color: #6659f4;
+  padding: 18px;
+  border-radius: 18px;
   padding-left: 35px;
   padding-right: 35px;
   color: white;
-  left:14vw;
+  font-size: 3vh;
 }
 
-.Carousel{
-  top:550px;
-  min-width: 95vw;
-  align-items: center;
+.Carousel {
+  max-width: 75vw;
+  min-width: 75vw;
+}
+.Carousel-info {
+  background-color: white;
+  color: rgba(77, 18, 151, 1);
+  min-height: 48vh;
+  border-radius: 25px;
+  min-width: 97%;
+}
+.c-text {
+  font-size: 2.5vh;
+}
+.bg {
+  background-color: rgba(238, 239, 255, 1);
+  margin-top: 60vh;
+}
+.Item {
+  border-radius: 10px;
   justify-content: center;
+  align-items: center;
+  min-width: 20vw;
+  max-width: 20vw;
+}
+.Item-h4 {
+  color: rgba(77, 18, 151, 1);
+  font-size: 3vh;
+}
+.c-title {
+  font-size: 4vh;
+  line-height: 1.25;
+}
+.Item-btn {
+  background-color: rgba(77, 18, 151, 1);
+  color: white;
+}
+.Item-btn:hover {
+  background-color: rgb(145, 85, 218);
+  color: white;
+}
+.Item-p {
+  font-size: 2vh;
 }

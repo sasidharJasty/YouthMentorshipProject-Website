@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./homePage.css";
 import axios from "axios";
+import "./Nav2.css";
 
 interface Prop {
   Username: { User: string; Username: string; Id: number };
@@ -26,13 +27,13 @@ function ResponsiveAppBar(props: Prop) {
   }
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 shadow-xl top-0 fixed w-screen mb-40">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto ">
+    <nav className="bg-white border-gray-200 dark:bg-gray-900 shadow-xl top-0 fixed w-screen mb-40 justify-center justify-content-center text-center">
+      <div className="w-screen flex flex-wrap items-center justify-between  ">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <h2 className=" my-4 ml-10 text-4xl  verticalLine pr-2 font-black logo ">
+          <h2 className=" my-4 ml-60 Logo-txt  verticalLine pr-2 font-black logo ">
             YMP
           </h2>
-          <span className="self-center text-xs font-normal  whitespace-nowrap dark:text-white">
+          <span className="self-center Logo-sd font-normal  whitespace-nowrap dark:text-white">
             Youth
             <br />
             Mentorship
@@ -40,10 +41,10 @@ function ResponsiveAppBar(props: Prop) {
             Project
           </span>
         </a>
-        <div className="flex items-center md:order-2 space-x-3  rtl:space-x-reverse">
+        <div className="flex items-center md:order-2 space-x-3  rtl:space-x-reverse mr-60">
           <button
             type="button"
-            className="flex px-3 py-2 text-sm bg-purple-500 rounded-xl md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+            className="flex px-3 py-2 btn-txt bg-purple-500 rounded-xl md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
             id="user-menu-button"
             aria-expanded="false"
             data-dropdown-toggle="user-dropdown"
@@ -53,9 +54,9 @@ function ResponsiveAppBar(props: Prop) {
             <span className="sr-only">Open user menu</span>
             <p className="">
               {props.Username["Id"] !== -999 ? (
-                <p>{props.Username["Username"]} ▼</p>
+                <p className="">{props.Username["Username"]} ▼</p>
               ) : (
-                <a className="text-white" href="/login/">
+                <a className="text-white " href="/login/">
                   Log In
                 </a>
               )}{" "}
@@ -64,12 +65,11 @@ function ResponsiveAppBar(props: Prop) {
 
           <button
             type="button"
-            className="flex px-3 py-2 ml-5 text-sm bg-blue-500 text-white rounded-xl md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+            className="flex px-3 py-2 ml-5 btn-txt bg-blue-500 text-white rounded-xl md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
             id="user-menu-button"
             aria-expanded="false"
             data-dropdown-toggle="user-dropdown"
             data-dropdown-placement="bottom"
-
           >
             <span className="sr-only">Open user menu</span>
             <a className="">Donate</a>
@@ -154,7 +154,7 @@ function ResponsiveAppBar(props: Prop) {
           className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
           id="navbar-user"
         >
-          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="flex flex-col Nav-txt font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <a
                 href="/"
