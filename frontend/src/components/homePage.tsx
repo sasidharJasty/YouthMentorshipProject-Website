@@ -14,6 +14,7 @@ import unity from "./unity.png";
 import ResponsiveAppBar from "./Nav2";
 import Item from "./Item";
 import Carousel from "./carousel";
+import Footer_logo from "./Footer-logo.png";
 
 const list: string[] = [SWE, BM, CDE, EY, unity];
 
@@ -194,7 +195,7 @@ export default function Home(props: Prop) {
             <div className="Video rounded-xl">
               <iframe
                 className="Video rounded-xl"
-                src="https://www.youtube.com/embed/CsE_pVrxXIg?autoplay=1"
+                src="https://www.youtube.com/embed/CsE_pVrxXIg?autoplay=1&mute=1"
                 title="Meet Your Team Video Template (Editable)"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               ></iframe>
@@ -218,6 +219,68 @@ export default function Home(props: Prop) {
               message="Corporate partners and sponsors support our goals and missions."
             ></Carousel>
           </div>
+          <div className="Footer ">
+            {" "}
+            <div className="Footer-content flex">
+              {" "}
+              <img src={Footer_logo} className="Footer-image"></img>
+              <div className="NAV-links">
+                <ul>
+                  <li className="Link">
+                    <a href="#">About</a>
+                  </li>
+                  <li className="Link">
+                    <a href="#">Programs</a>
+                  </li>
+                  <li className="Link">
+                    <a href="#">Membership</a>
+                  </li>
+                </ul>
+              </div>
+              <div className="NAV-links">
+                <ul>
+                  <li className="Link">
+                    <a href="#">Events</a>
+                  </li>
+                  <li className="Link">
+                    <a href="#">Partner</a>
+                  </li>
+                </ul>
+              </div>
+              <div className="Chapter-links">
+                <ul>
+                  <li className="Link">
+                    <p>Chapter Regions</p>
+                  </li>
+                  <li className="Link">
+                    <a href="#">Americas</a>
+                  </li>
+                  <li className="Link">
+                    <a href="#">Asia Pacific</a>
+                  </li>
+                  <li className="Link">
+                    <a href="#">Europe</a>
+                  </li>
+                </ul>
+              </div>
+              <div className="Terms-links">
+                <ul>
+                  <li className="Link">
+                    <a href="#">Terms and conditions</a>
+                  </li>
+                  <li className="Link">
+                    <a href="#">Privacy Policy</a>
+                  </li>
+                  <li className="Link">
+                    <a href="#">Contact Us</a>
+                  </li>
+                  <li className="Link">
+                    <a href="#">About Us</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="fixed z-50">
@@ -229,7 +292,6 @@ export default function Home(props: Prop) {
             }}
           />
         </div>
-        <div className="h-screen bg"></div>
       </div>
     </div>
   );
