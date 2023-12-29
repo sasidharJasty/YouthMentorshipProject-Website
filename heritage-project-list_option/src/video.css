@@ -1,0 +1,36 @@
+.return {
+  display: flex;
+  max-width: 5vw;
+  /* background-color: red; */
+  /* border-radius: 15px; */
+  margin-right: 3vh;
+}
+
+.contentDisplay {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+
+  padding: 3vh;
+}
+
+.fullVid {
+  border: 4px solid black;
+}
+
+.returnText {
+  /* font-size: 4vh;
+  font-weight: 2em; */
+}
+
+.return_button {
+  /* min-height: 94vh;
+  background-color: red;
+
+  border-width: 0px;
+  display: flex;
+  align-items: center;
+  border-radius: 15px; */
+}

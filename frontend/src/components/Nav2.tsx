@@ -27,13 +27,13 @@ function ResponsiveAppBar(props: Prop) {
   }
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 shadow-xl top-0 fixed w-screen mb-40 justify-center justify-content-center text-center">
+    <nav className=" fixed bg-white border-gray-200  shadow-2xl top-0 dark:bg-gray-900 w-screen mb-40 justify-center justify-content-center text-center bg-opacity-80 dark:bg-opacity-95">
       <div className="w-screen flex flex-wrap items-center justify-between  ">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <h2 className=" my-4 ml-60 Logo-txt  verticalLine pr-2 font-black logo ">
             YMP
           </h2>
-          <span className="self-center Logo-sd font-normal  whitespace-nowrap dark:text-white">
+          <span className="text-left Logo-sd font-normal  whitespace-nowrap text-black dark:text-white">
             Youth
             <br />
             Mentorship
@@ -151,14 +151,14 @@ function ResponsiveAppBar(props: Prop) {
         </div>
 
         <div
-          className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+          className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 "
           id="navbar-user"
         >
-          <ul className="flex flex-col Nav-txt font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="flex flex-col Nav-txt font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  bg-opacity-80 dark:bg-opacity-95">
             <li>
               <a
                 href="/"
-                className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 bg-opacity-80 dark:bg-opacity-95"
                 aria-current="page"
               >
                 Home

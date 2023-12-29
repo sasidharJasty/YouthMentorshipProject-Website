@@ -44,7 +44,7 @@ function Signup(props: Props) {
   };
 
   return (
-    <div className="fixed justify-center content-center w-screen h-screen bg-slate-100  ">
+    <div className="lg:fixed justify-center content-center w-full h-full bg-slate-100">
       <ResponsiveAppBar
         Username={{
           User: email,
@@ -52,28 +52,33 @@ function Signup(props: Props) {
           Id: id,
         }}
       />
-      <div className="w-auto h-auto   rounded-lg  grid grid-cols-2 text-black">
-        <div className="justify-center content-center text-center  ">
-          <img className=" m-1 " src={login}></img>
+      <div className="w-full h-full   grid grid-cols-2 text-black">
+        <div className="justify-center content-center text-center">
+          <img
+            width="auto"
+            height="100%"
+            className="Login-img"
+            src={login}
+          ></img>
         </div>
         <div className=" justify-center content-center text-center flex items-center ">
           <form className="mb-10 w-full" onSubmit={handleSignup}>
             <div>
               <div className="justify-center content-center text-center  ">
-                <h1 className="font-extrabold text-3xl logo mb-10 ">YMP</h1>
+                <h1 className="font-extrabold logo mb-10 ">YMP</h1>
               </div>
-              <h1 className="text-5xl mb-10 font-black">Signup</h1>
-              <p className="text-gray-400 font-medium mb-10">
+              <h1 className="Login-Title mb-10 font-black">Signup</h1>
+              <p className="text-gray-400 info-ft mb-10">
                 Sign up for YMP with your information
               </p>
               {lgf === true ? (
-                <p className="text-red-600 text-lg font-bold mb-2">{err}</p>
+                <p className="text-red-600 info-ft font-bold mb-2">{err}</p>
               ) : null}
-              <p className="w-1/2 ml-10 mb-1 text-gray-700 font-semibold">
+              <p className="w-1/2 ml-10 mb-1 info-ft text-gray-700 font-semibold">
                 Username
               </p>
               <input
-                className="mb-3 rounded-md py-2 w-1/2 pl-3"
+                className="mb-3 info-ft rounded-md py-2 w-1/2 pl-3"
                 type="text"
                 placeholder="Enter your Username"
                 value={username}
@@ -81,11 +86,11 @@ function Signup(props: Props) {
               />
             </div>
             <div>
-              <p className="w-1/2 ml-6 mb-1 text-gray-700 font-semibold">
+              <p className="w-1/2 ml-6 mb-1 text-gray-700 info-ft font-semibold">
                 Email
               </p>
               <input
-                className="mb-3 rounded-md py-2 w-1/2 pl-3 boo"
+                className="mb-3 rounded-md info-ft py-2 w-1/2 pl-3 boo"
                 type="text"
                 placeholder="Enter your Email"
                 value={email}
@@ -93,26 +98,26 @@ function Signup(props: Props) {
               />
             </div>
             <div>
-              <p className="w-1/2 ml-10 mb-1 text-gray-700 font-semibold">
+              <p className="w-1/2 ml-10 mb-1 info-ft text-gray-700 font-semibold">
                 Password
               </p>
               <input
                 type="password"
-                className="mb-3 rounded-md py-2 w-1/2 pl-3"
+                className="mb-3 info-ft rounded-md py-2 w-1/2 pl-3"
                 placeholder="Enter your Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <p className="">
+            <p className="Redirect-txt">
               {" "}
               Have an account?{" "}
-              <a className="text-blue-500" href="/login/">
+              <a className="text-blue-500 " href="/login/">
                 Login!
               </a>
             </p>
             <button
-              className="bg-blue-400 px-20 py-1 mt-3 rounded-md shadow-2xl text-black"
+              className="bg-blue-400 Redirect-txt-btn rounded-md shadow-2xl text-black"
               type="submit"
             >
               Signup
