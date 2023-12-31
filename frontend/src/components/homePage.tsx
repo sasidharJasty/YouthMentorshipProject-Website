@@ -2,6 +2,7 @@
 import ResponsiveAppBar from "./Nav2";
 import Item from "./Item";
 import Carousel from "./carousel";
+import { InstagramEmbed } from "react-social-media-embed";
 //Socials
 import tik from "./s-tik.png";
 import linkedin from "./s-linkedin.png";
@@ -29,12 +30,11 @@ const list: string[] = [SWE, BM, CDE, EY, unity];
 export default function Home() {
   const val = JSON.parse(localStorage.getItem("Data") || "{}");
   return (
-    <div className="">
+    <div className="main-display">
       <div>
         <div className="z-1">
           <img
             className="absolute img"
-            width="110%"
             src="https://i.ibb.co/6y0dx0Z/Whats-App-Image-2023-12-03-at-19-19-48-98168732.jpg"
           />
           <div className="flex z-1  mt-40 ml-40">
@@ -111,12 +111,12 @@ export default function Home() {
           <img className="absolute divider z-80" src={divider}></img>
           <div className="absolute flex w-full info-box z-9">
             <div className="absolute left-0 pl-10">
-              <h1 className="Divider-title-txt z-90">
+              <h1 className="Divider-title-txt z-30">
                 Explore some of out initiatives,
                 <br /> missions, and impact
               </h1>
               <div className="grid grid-cols-2 gap-10 gap-y-40 pt-20 Divider-Grid w-1/2">
-                <div className="z-70">
+                <div className="z-30">
                   <div className="flex">
                     <img src={map} className="Grid-img absolute"></img>
                     <h2 className="font-bold Grid-content flex">
@@ -130,7 +130,7 @@ export default function Home() {
                     on your own.{" "}
                   </p>
                 </div>
-                <div className="z-70">
+                <div className="z-30">
                   <div className="flex">
                     <img src={mic} className="Grid-img absolute"></img>
                     <h2 className="font-bold Grid-content flex">
@@ -143,7 +143,7 @@ export default function Home() {
                     programs.
                   </p>
                 </div>
-                <div className="z-70">
+                <div className="z-30">
                   <div className="flex">
                     <img src={speaker} className="Grid-img absolute"></img>
 
@@ -159,7 +159,7 @@ export default function Home() {
                     February 4.
                   </p>
                 </div>
-                <div className="z-80">
+                <div className="z-30">
                   <div className="flex">
                     <img src={award} className="Grid-img absolute"></img>
                     <h2 className="font-bold Grid-content flex">
@@ -174,8 +174,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="absolute right-0 w-1/2 z-90">
-              <div className="API text-center">Integrate API here</div>
+            <div className="absolute right-0 w-1/2 z-30">
+              <div className="API text-center z-30 ">
+                <InstagramEmbed url="https://www.instagram.com/p/Cy0zPPSLnL4/?utm_source=ig_embed&utm_campaign=loading" />
+              </div>
               <div className="grid API-grid grid-cols-2 ">
                 <div>
                   <h1 className="API-info font-bold">Countries</h1>

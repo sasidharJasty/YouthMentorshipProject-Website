@@ -95,10 +95,7 @@ function ResponsiveAppBar(props: Prop) {
               </a>
             </li>
             <li className="Link">
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/company/youth-mentorship-proj/"
-              >
+              <a target="_blank" href="discord.gg/mCWDhdtmdS">
                 <img src={discord} className=" NAV-socials"></img>
               </a>
             </li>

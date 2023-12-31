@@ -1,5 +1,6 @@
 .API {
-  min-height: 50vh;
+  width: 30vw;
+  margin-left: 12vw;
 }
 .API-Data {
   font-size: 5vw;
@@ -85,6 +86,7 @@
 }
 .img {
   margin-top: 15vh;
+  width: 100vw;
 }
 .Login-Title {
   font-size: 3vw;
