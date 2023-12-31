@@ -29,6 +29,10 @@
   margin-right: 5vw;
   object-fit: contain; /* Maintain aspect ratio and fit within the container */
 }
+.carousel-btn {
+  min-height: 8vh;
+  width: auto;
+}
 .Message {
   font-size: 2vw;
   color: rgba(77, 18, 151, 1);

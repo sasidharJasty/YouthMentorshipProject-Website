@@ -52,6 +52,8 @@ export default Carousel;*/
 
 import React, { useState } from "react";
 import "./Carousel.css"; // Import a separate CSS file for styling
+import left_arr from "./left.png";
+import right_arr from "./right.png";
 
 interface CarouselProps {
   display: string[];
@@ -83,7 +85,7 @@ const Carousel: React.FC<CarouselProps> = ({ display, length, message }) => {
       <h1 className="Message text-center font-bold">{message}</h1>
       <div className="carousel-container">
         <button className="carousel-button" onClick={handlePrevious}>
-          ◀︎
+          <img src={left_arr} className="carousel-btn"></img>
         </button>
         <div className="carousel flex">
           {visibleImages.map((imageUrl, index) => (
@@ -91,7 +93,7 @@ const Carousel: React.FC<CarouselProps> = ({ display, length, message }) => {
           ))}
         </div>
         <button className="carousel-button" onClick={handleNext}>
-          ▶︎
+          <img src={right_arr} className="carousel-btn"></img>
         </button>
       </div>
     </>

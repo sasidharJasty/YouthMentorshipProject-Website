@@ -1,34 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import login from "./login.png";
 import "./Signup.css";
 import ResponsiveAppBar from "./Nav2";
-
-const useScreenSize = () => {
-  const [screenSize, setScreenSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  return screenSize;
-};
 
 interface Props {
   handleLogin: (val: { User: string; Username: string; Id: number }) => void;
@@ -41,7 +16,6 @@ function Login(props: Props) {
   const [err, seterr] = useState("");
 
   const history = useNavigate();
-  const height = 100;
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,12 +26,6 @@ function Login(props: Props) {
         password: password,
       });
 
-      // Assuming the Django API returns a token on successful login
-      const token = response.data.token;
-
-      // Store the token in local storage (you might want to use more secure storage)
-
-      // Redirect or perform other actions on successful login
       history("/");
       seterr("");
       setlgf(false);

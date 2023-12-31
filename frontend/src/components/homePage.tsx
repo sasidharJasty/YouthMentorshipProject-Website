@@ -1,26 +1,32 @@
-import React, { useState } from "react";
-import axios from "axios";
-import bg from "./bg.png";
+//imports
+import ResponsiveAppBar from "./Nav2";
+import Item from "./Item";
+import Carousel from "./carousel";
+//Socials
+import tik from "./s-tik.png";
+import linkedin from "./s-linkedin.png";
+import insta from "./s-insta.png";
+import facebook from "./s-face.png";
+import youtube from "./s-youtube.png";
+import discord from "./s-discord.png";
+//sponsors
+import SWE from "./Carousel/SWE.png";
+import BM from "./Carousel/bm.png";
+import CDE from "./Carousel/CDE.png";
+import EY from "./Carousel/EY.png";
+import unity from "./Carousel/unity.png";
+
+//images
 import map from "./map.png";
 import mic from "./mic.png";
 import speaker from "./speaker.png";
 import award from "./award.png";
 import divider from "./divider.png";
-import SWE from "./SWE.png";
-import BM from "./bm.png";
-import CDE from "./CDE.png";
-import EY from "./EY.png";
-import unity from "./unity.png";
-import ResponsiveAppBar from "./Nav2";
-import Item from "./Item";
-import Carousel from "./carousel";
 import Footer_logo from "./Footer-logo.png";
 
 const list: string[] = [SWE, BM, CDE, EY, unity];
 
-interface Prop {}
-
-export default function Home(props: Prop) {
+export default function Home() {
   const val = JSON.parse(localStorage.getItem("Data") || "{}");
   return (
     <div className="">
@@ -253,29 +259,96 @@ export default function Home(props: Prop) {
                     <p>Chapter Regions</p>
                   </li>
                   <li className="Link">
-                    <a href="#">Americas</a>
+                    <a target="_blank" href="#">
+                      Americas
+                    </a>
                   </li>
                   <li className="Link">
-                    <a href="#">Asia Pacific</a>
+                    <a target="_blank" href="#">
+                      Asia Pacific
+                    </a>
                   </li>
                   <li className="Link">
-                    <a href="#">Europe</a>
+                    <a target="_blank" href="#">
+                      Europe
+                    </a>
                   </li>
                 </ul>
               </div>
               <div className="Terms-links">
                 <ul>
                   <li className="Link">
-                    <a href="#">Terms and conditions</a>
+                    <a target="_blank" href="#">
+                      Terms and conditions
+                    </a>
                   </li>
                   <li className="Link">
-                    <a href="#">Privacy Policy</a>
+                    <a target="_blank" href="#">
+                      Privacy Policy
+                    </a>
                   </li>
                   <li className="Link">
-                    <a href="#">Contact Us</a>
+                    <a target="_blank" href="#">
+                      Contact Us
+                    </a>
                   </li>
                   <li className="Link">
-                    <a href="#">About Us</a>
+                    <a target="_blank" href="#">
+                      About Us
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className="socials">
+                <h3>Follow YMP:</h3>
+                <ul className="flex">
+                  <li className="Link">
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/company/youth-mentorship-proj/"
+                    >
+                      <img src={tik} className="Footer-socials"></img>
+                    </a>
+                  </li>
+                  <li className="Link">
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/company/youth-mentorship-proj/"
+                    >
+                      <img src={linkedin} className="Footer-socials"></img>
+                    </a>
+                  </li>
+                  <li className="Link">
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/company/youth-mentorship-proj/"
+                    >
+                      <img src={insta} className="Footer-socials"></img>
+                    </a>
+                  </li>
+                  <li className="Link">
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/company/youth-mentorship-proj/"
+                    >
+                      <img src={facebook} className="Footer-socials"></img>
+                    </a>
+                  </li>
+                  <li className="Link">
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/company/youth-mentorship-proj/"
+                    >
+                      <img src={youtube} className="Footer-socials"></img>
+                    </a>
+                  </li>
+                  <li className="Link">
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/company/youth-mentorship-proj/"
+                    >
+                      <img src={discord} className="Footer-socials"></img>
+                    </a>
                   </li>
                 </ul>
               </div>
