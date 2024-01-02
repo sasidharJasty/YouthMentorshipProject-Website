@@ -174,7 +174,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="absolute right-0 w-1/2 z-30">
+            <div className="absolute right-0 w-1/2 z-30 DATA ">
               <div className="API text-center z-30 ">
                 <InstagramEmbed url="https://www.instagram.com/p/Cy0zPPSLnL4/?utm_source=ig_embed&utm_campaign=loading" />
               </div>
@@ -323,7 +323,7 @@ export default function Home() {
                   <li className="Link">
                     <a
                       target="_blank"
-                      href="https://www.linkedin.com/company/youth-mentorship-proj/"
+                      href="https://www.instagram.com/youthmentorshipproject/"
                     >
                       <img src={insta} className="Footer-socials"></img>
                     </a>
@@ -345,10 +345,7 @@ export default function Home() {
                     </a>
                   </li>
                   <li className="Link">
-                    <a
-                      target="_blank"
-                      href="https://www.linkedin.com/company/youth-mentorship-proj/"
-                    >
+                    <a target="_blank" href="https://discord.gg/mCWDhdtmdS">
                       <img src={discord} className="Footer-socials"></img>
                     </a>
                   </li>
