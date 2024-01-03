@@ -1,0 +1,9 @@
+.Past-Hours {
+  width: 95%;
+  padding-right: 0%;
+  height: 70vh;
+  overflow-y: scroll;
+  border-color: black;
+  border-radius: 3px;
+  border-style: solid;
+}

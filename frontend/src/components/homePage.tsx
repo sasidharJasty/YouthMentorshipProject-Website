@@ -92,16 +92,19 @@ export default function Home() {
                 url="https://i.ibb.co/ZVy8xvC/IMG-3338-1.png"
                 title="Upcoming Events"
                 description="Explore upcoming and previous events at YMP that you can participate in virtually and in person."
+                link="#"
               />
               <Item
                 url="https://i.ibb.co/ZVy8xvC/IMG-3338-1.png"
                 title="Join YMP Today"
                 description="Join YMP to take a part in programs and opportunities for youth. Gain access to a global network of mentors for your projects."
+                link="/signup/"
               />
               <Item
                 url="https://i.ibb.co/ZVy8xvC/IMG-3338-1.png"
                 title="Chapter Program"
                 description="Create a chapter to make an impact with your community on your community by completing projects with personalized mentorship."
+                link="#"
               />
             </div>
           </div>
@@ -301,7 +304,7 @@ export default function Home() {
                   </li>
                 </ul>
               </div>
-              <div className="socials">
+              <div className="socials text-white">
                 <h3>Follow YMP:</h3>
                 <ul className="flex">
                   <li className="Link">

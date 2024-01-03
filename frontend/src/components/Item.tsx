@@ -2,6 +2,7 @@ interface Props {
   url: string;
   title: string;
   description: string;
+  link: string;
 }
 
 export default function Item(props: Props) {
@@ -10,7 +11,7 @@ export default function Item(props: Props) {
       <img src={props.url} className="w-full" />
       <h4 className="font-semibold mb-2 mt-3 Item-h4">{props.title}</h4>
       <p className="mb-4 Item-p">{props.description}</p>
-      <a href="#" className="p-2 px-3 Item-btn transition rounded-xl">
+      <a href={props.link} className="p-2 px-3 Item-btn transition rounded-xl">
         Learn More
       </a>
     </div>

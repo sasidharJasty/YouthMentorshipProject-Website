@@ -1,0 +1,23 @@
+.num {
+  font-size: 60vh;
+  color: rgba(227, 229, 255, 0.552);
+}
+.txt {
+  font-size: 20vh;
+  font-weight: bold;
+  margin-top: 30vh;
+  color: rgba(106, 76, 227, 0.941);
+}
+.btn {
+  font-size: 5vh;
+  color: white;
+  background-color: rgba(106, 76, 227, 0.941);
+  padding: 2vh;
+  border-radius: 3vh;
+}
+.txt-lg {
+  font-size: 7vw;
+  font-weight: bold;
+  margin-top: 30vh;
+  color: rgba(106, 76, 227, 0.941);
+}

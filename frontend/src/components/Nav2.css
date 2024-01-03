@@ -14,3 +14,20 @@
   width: 8vw;
   height: auto;
 }
+.NAV-socials {
+  min-width: 1.5vw;
+  margin-left: 1vw;
+  margin-top: 1vh;
+  height: auto;
+  filter: invert(100%) sepia(1%) saturate(2%) hue-rotate(342deg)
+    brightness(115%) contrast(101%);
+}
+.nsocials {
+  min-width: 1.5vw;
+  margin-left: 1vw;
+  margin-top: 1vh;
+  height: auto;
+}
+.Selector {
+  max-width: 10vw;
+}

@@ -4,11 +4,8 @@ import axios from "axios";
 import login from "./login.png";
 import "./Signup.css";
 import ResponsiveAppBar from "./Nav2";
-interface Props {
-  handleLogin: (val: { User: string; Username: string; Id: number }) => void;
-}
 
-function Signup(props: Props) {
+function Signup() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setemail] = useState("");
@@ -30,7 +27,12 @@ function Signup(props: Props) {
       history("/");
       seterr("");
       setlgf(false);
-      props.handleLogin(response.data);
+      const token = response.data.token;
+
+      // Store the token in local storage (you might want to use more secure storage)
+      localStorage.setItem("token", JSON.stringify(token));
+      axios.defaults.headers.common["Authorization"] = `Token ${token}`;
+
       localStorage.setItem("Data", JSON.stringify(response.data));
       setid(response.data["Id"]);
 
@@ -38,7 +40,7 @@ function Signup(props: Props) {
     } catch (error: any) {
       seterr(error.response.data["error"]);
       console.log(error.response.data["error"]);
-      props.handleLogin({ User: "False", Username: "False", Id: -999 });
+
       setlgf(true);
     }
   };
@@ -91,7 +93,7 @@ function Signup(props: Props) {
               </p>
               <input
                 className="mb-3 rounded-md info-ft py-2 w-1/2 pl-3 boo"
-                type="text"
+                type="email"
                 placeholder="Enter your Email"
                 value={email}
                 onChange={(e) => setemail(e.target.value)}

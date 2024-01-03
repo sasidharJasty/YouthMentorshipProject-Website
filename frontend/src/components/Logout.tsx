@@ -22,6 +22,8 @@ export default function Logout() {
         Id: -999,
       })
     );
+    localStorage.clear();
+
     history("/");
     const val = JSON.parse(localStorage.getItem("Data") || "{}");
   }

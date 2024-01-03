@@ -22,6 +22,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.decorators import api_view, permission_classes
 from django_filters.rest_framework import DjangoFilterBackend
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.authtoken.models import Token
 import socket
 socket.getaddrinfo('localhost', 5173)
 class UserViewSet(viewsets.ModelViewSet):
@@ -90,7 +91,9 @@ class SignupView(APIView):
             user = User.objects.create_user(username=username, email=email ,password=password,ymp_id=num)
             send_mail("Welcome To YMP!", "Your YMP Id is: " + user.ymp_id, EMAIL_HOST_USER, [email], fail_silently=False)
             #send_email(email,"Welcome to YMP", "Your YMP Id is: " + str(user.ymp_id))
-            return Response({'User': username,"Username":user.username,  'Id':user.ymp_id})
+            token, created = Token.objects.get_or_create(user=user)
+
+            return Response({'User': username, 'Username': user.username, 'Id': user.ymp_id, 'token': token.key})
 
 class LoginView(APIView):
     permission_classes = [AllowAny]
@@ -107,7 +110,8 @@ class LoginView(APIView):
 
         if user is not None:
             login(request, user)
-            return Response({'User': username,"Username":user.username, 'Id':user.ymp_id})
+            token, created = Token.objects.get_or_create(user=user)
+            return Response({'User': username, 'Username': user.username, 'Id': user.ymp_id, 'token': token.key})
         else:
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 

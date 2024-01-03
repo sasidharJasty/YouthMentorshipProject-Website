@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./homePage.css";
 import axios from "axios";
 import "./Nav2.css";
@@ -16,12 +16,41 @@ interface Prop {
 
 function ResponsiveAppBar(props: Prop) {
   const [Selects, setSelect] = useState(false);
+  const [login, setlogin] = useState(false);
+  const [user, setuser] = useState(props.Username["Id"]);
 
   const handleOpen = () => {
     setSelect((Selects) => !Selects);
   };
+  useEffect(() => {
+    if (props.Username["Id"] === -999) {
+      setlogin(true);
+      setuser(-999);
+    }
+  }, []);
   async function logout() {
-    await axios.post("http://127.0.0.1:8000/logout/");
+    try {
+      await axios.post("http://127.0.0.1:8000/logout/");
+      setSelect(false);
+      setlogin(true);
+      setuser(-999);
+    } catch (error: any) {
+      // Handle error if needed
+      console.error("Logout failed:", error.response.data);
+    }
+
+    // Remove the token from local storage
+    setSelect(false);
+    localStorage.removeItem("token");
+    localStorage.clear();
+
+    setlogin(true);
+    setuser(-999);
+
+    // Clear the Authorization header in axios defaults
+    delete axios.defaults.headers.common["Authorization"];
+
+    // Update the user data in local storage
     localStorage.setItem(
       "Data",
       JSON.stringify({
@@ -30,7 +59,6 @@ function ResponsiveAppBar(props: Prop) {
         Id: -999,
       })
     );
-    JSON.parse(localStorage.getItem("Data") || "{}");
   }
 
   return (
@@ -59,7 +87,7 @@ function ResponsiveAppBar(props: Prop) {
                 target="_blank"
                 href="https://www.linkedin.com/company/youth-mentorship-proj/"
               >
-                <img src={tik} className=" NAV-socials"></img>
+                <img src={tik} className="nsocials"></img>
               </a>
             </li>
             <li className="Link">
@@ -67,7 +95,7 @@ function ResponsiveAppBar(props: Prop) {
                 target="_blank"
                 href="https://www.linkedin.com/company/youth-mentorship-proj/"
               >
-                <img src={linkedin} className=" NAV-socials"></img>
+                <img src={linkedin} className=" nsocials"></img>
               </a>
             </li>
             <li className="Link">
@@ -75,7 +103,7 @@ function ResponsiveAppBar(props: Prop) {
                 target="_blank"
                 href="https://www.instagram.com/youthmentorshipproject/"
               >
-                <img src={insta} className=" NAV-socials"></img>
+                <img src={insta} className=" nsocials"></img>
               </a>
             </li>
             <li className="Link">
@@ -83,7 +111,7 @@ function ResponsiveAppBar(props: Prop) {
                 target="_blank"
                 href="https://www.linkedin.com/company/youth-mentorship-proj/"
               >
-                <img src={facebook} className=" NAV-socials"></img>
+                <img src={facebook} className="  nsocials"></img>
               </a>
             </li>
             <li className="Link">
@@ -91,12 +119,12 @@ function ResponsiveAppBar(props: Prop) {
                 target="_blank"
                 href="https://www.linkedin.com/company/youth-mentorship-proj/"
               >
-                <img src={youtube} className=" NAV-socials"></img>
+                <img src={youtube} className=" nsocials"></img>
               </a>
             </li>
             <li className="Link">
               <a target="_blank" href="https://discord.gg/mCWDhdtmdS">
-                <img src={discord} className=" NAV-socials"></img>
+                <img src={discord} className=" nsocials"></img>
               </a>
             </li>
           </ul>
@@ -112,7 +140,7 @@ function ResponsiveAppBar(props: Prop) {
             >
               <span className="sr-only">Open user menu</span>
               <p className="">
-                {props.Username["Id"] !== -999 ? (
+                {user !== -999 ? (
                   <p className="">{props.Username["Username"]} ▼</p>
                 ) : (
                   <a className="text-white " href="/login/">
@@ -139,7 +167,7 @@ function ResponsiveAppBar(props: Prop) {
             {Selects === true && props.Username["Id"] !== -999 ? (
               <>
                 {" "}
-                <div className=" absolute top-5 my-10 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-xl dark:bg-gray-700 dark:divide-gray-600">
+                <div className=" absolute top-11 my-10  text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-xl dark:bg-gray-700 dark:divide-gray-600">
                   <div className="px-4 py-3">
                     <span className="block text-sm text-gray-900 dark:text-white">
                       {props.Username["User"]}
@@ -151,10 +179,10 @@ function ResponsiveAppBar(props: Prop) {
                   <ul className="py-2" aria-labelledby="user-menu-button">
                     <li>
                       <a
-                        href="#"
+                        href="/hours"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                       >
-                        Dashboard
+                        Hours
                       </a>
                     </li>
                     <li>
@@ -217,7 +245,7 @@ function ResponsiveAppBar(props: Prop) {
           className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 mx-10"
           id="navbar-user"
         >
-          <ul className="flex flex-col Nav-txt font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  bg-opacity-80 dark:bg-opacity-95">
+          <ul className="flex flex-col text-md font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  bg-opacity-80 dark:bg-opacity-95">
             <li>
               <a
                 href="/"
