@@ -33,6 +33,7 @@ AUTH_USER_MODEL = "project.CustomUser"
 
 INSTALLED_APPS = [
     'jazzmin',
+    'django_filters',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',

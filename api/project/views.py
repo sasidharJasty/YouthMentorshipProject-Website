@@ -1,17 +1,27 @@
 from django.contrib.auth import get_user_model
 User = get_user_model()
 from django.contrib.auth import authenticate
-from .models import Role, Logs
+from .models import Role, Logs, HourRecord
 from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import permissions
-from .serializers import UserSerializer, RolesSerializer, LogsSerializer
+from .serializers import UserSerializer, RolesSerializer, LogsSerializer, HoursSerializer
 import smtplib
 import random
 from django.core.mail import send_mail
 from django.core.mail import EmailMessage
 from api.settings import EMAIL_HOST_USER
+from django.contrib.auth import authenticate, login, logout
+from django.http import JsonResponse
+from rest_framework.decorators import api_view
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.permissions import AllowAny
+from rest_framework.decorators import api_view, permission_classes
+from django_filters.rest_framework import DjangoFilterBackend
+from django.views.decorators.csrf import csrf_exempt
 import socket
 socket.getaddrinfo('localhost', 5173)
 class UserViewSet(viewsets.ModelViewSet):
@@ -38,15 +48,17 @@ class LogsViewSet(viewsets.ModelViewSet):
     serializer_class = LogsSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-from django.contrib.auth import authenticate, login, logout
-from django.http import JsonResponse
-from rest_framework.decorators import api_view
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.permissions import AllowAny
-from rest_framework.decorators import api_view, permission_classes
-from django.views.decorators.csrf import csrf_exempt
+class HoursViewSet(viewsets.ModelViewSet ):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = HourRecord.objects.all()
+    serializer_class = HoursSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['ymp_id']
+
+
 
 class SignupView(APIView):
     permission_classes = [AllowAny]

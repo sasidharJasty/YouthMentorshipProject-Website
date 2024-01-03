@@ -70,6 +70,8 @@ class HourRecord(models.Model):
     ymp_id=models.CharField(max_length = 6, default=0)
     hours = models.IntegerField()
     work_description = models.CharField(max_length=500)
+    teamlead_email=models.EmailField(_("email address"))
+    next_week_plans = models.CharField(max_length=500)
     date = models.DateField()
 
     def __str__(self):

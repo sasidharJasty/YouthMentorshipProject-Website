@@ -29,6 +29,10 @@ function Login(props: Props) {
       history("/");
       seterr("");
       setlgf(false);
+      const token = response.data.token;
+
+      // Store the token in local storage (you might want to use more secure storage)
+      localStorage.setItem("token", token);
       localStorage.setItem("Data", JSON.stringify(response.data));
       props.handleLogin(response.data);
     } catch (error: any) {

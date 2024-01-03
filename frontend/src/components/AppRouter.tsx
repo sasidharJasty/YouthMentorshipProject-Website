@@ -4,7 +4,7 @@ import Login from "./Login";
 import Signup from "./Signup";
 import Logout from "./Logout";
 import Home from "./homePage";
-
+import Hours from "./hours";
 const AppRouter = () => {
   const [user, setuser] = useState({
     User: "false",
@@ -15,7 +15,6 @@ const AppRouter = () => {
   function handleLogin(val: { User: string; Username: string; Id: number }) {
     setuser(val);
   }
-  console.log(user, ID);
   return (
     <Router>
       <Routes>
@@ -23,6 +22,7 @@ const AppRouter = () => {
         <Route path="/signup" element={<Signup handleLogin={handleLogin} />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/" element={<Home />} />
+        <Route path="/hours" element={<Hours />} />
       </Routes>
     </Router>
   );
