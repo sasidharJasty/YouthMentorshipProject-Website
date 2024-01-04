@@ -18,6 +18,7 @@ function ResponsiveAppBar(props: Prop) {
   const [Selects, setSelect] = useState(false);
   const [login, setlogin] = useState(false);
   const [user, setuser] = useState(props.Username["Id"]);
+  const usrData = JSON.parse(localStorage.getItem("Data") || "{}");
 
   const handleOpen = () => {
     setSelect((Selects) => !Selects);
@@ -57,6 +58,7 @@ function ResponsiveAppBar(props: Prop) {
         User: "false",
         Username: "false",
         Id: -999,
+        Group:"Student"
       })
     );
   }
@@ -177,14 +179,14 @@ function ResponsiveAppBar(props: Prop) {
                     </span>
                   </div>
                   <ul className="py-2" aria-labelledby="user-menu-button">
-                    <li>
+                    {usrData["Groups"][0] !== "Student"? <li>
                       <a
                         href="/hours"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                       >
                         Hours
                       </a>
-                    </li>
+                    </li>:null }
                     <li>
                       <a
                         href="#"

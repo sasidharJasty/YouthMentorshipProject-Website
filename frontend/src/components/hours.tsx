@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ResponsiveAppBar from "./Nav2";
-import login from "./login.png";
 import "./hours.css";
 
 const Hours = () => {
@@ -13,7 +12,10 @@ const Hours = () => {
   const [nxtweek, setnxtweek] = useState("");
   const [resp, setresp] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [buttonClicked, setButtonClicked] = useState(false);
   const history = useNavigate();
+
+
 
   const DateConverter: React.FC<{ dateString: string }> = ({ dateString }) => {
     const dateObjectUTC = new Date(`${dateString}T24:00:00Z`);
@@ -45,6 +47,8 @@ const Hours = () => {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
   const usrData = JSON.parse(localStorage.getItem("Data") || "{}");
 
+  usrData["Groups"].map((item:String) =>{if(item === "Student"){history("/UnAuth");}})
+
   async function ren() {
     try {
       const response = await axios.get(
@@ -70,6 +74,7 @@ const Hours = () => {
   }, []); // Run only once when the component mounts
 
   const handleHours = async (e: React.FormEvent) => {
+    setButtonClicked(true);
     e.preventDefault();
 
     try {
@@ -95,6 +100,7 @@ const Hours = () => {
       setDescription("");
       setdate("");
       setnxtweek("");
+      setButtonClicked(false);
 
       ren();
     } catch (error: any) {
@@ -126,12 +132,13 @@ const Hours = () => {
               <div className=" Past-Hours">
                 {(resp || []).map((item, index) => (
                   <div
-                    className="flex mt-7 bg-purple-500 shadow-2xl rounded-xl p-1"
+                    className="flex mt-7 bg-purple-500 shadow-2xl rounded-xl p-1 grid  grid-cols-4 gap-2"
                     key={index}
                   >
+                    <div className="flex w-1/4 pl-3">
                     <h1 className="font-black text-5xl">{item["hours"]}</h1>
-                    <h1>hrs</h1>
-                    <div>
+                    <h1>hrs</h1></div>
+                    <div className="col-span-3">
                       <h1 className="ml-6 text-xl">
                         <DateConverter dateString={item["date"]} />
                       </h1>
@@ -219,6 +226,8 @@ const Hours = () => {
               <button
                 type="submit"
                 className="bg-blue-400 px-20 py-1 mt-3 shadow-xl rounded-md  text-black "
+                disabled={buttonClicked}
+
               >
                 Submit
               </button>

@@ -30,7 +30,7 @@ function Login() {
       // Store the token in local storage (you might want to use more secure storage)
       axios.defaults.headers.common["Authorization"] = `Token ${token}`;
       localStorage.setItem("token", JSON.stringify(token));
-      console.log(JSON.stringify(token));
+      console.log(response.data);
       localStorage.setItem("Data", JSON.stringify(response.data));
     } catch (error: any) {
       //console.error("login failed:", error.response.data["error"]);

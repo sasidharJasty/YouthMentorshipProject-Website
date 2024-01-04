@@ -32,6 +32,8 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['ymp_id']
 
 class RoleViewSet(viewsets.ModelViewSet):
     """
@@ -49,7 +51,12 @@ class LogsViewSet(viewsets.ModelViewSet):
     serializer_class = LogsSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-class HoursViewSet(viewsets.ModelViewSet ):
+from django.core.mail import send_mail
+from rest_framework import viewsets, permissions
+from django.views.decorators.csrf import csrf_exempt
+from django_filters.rest_framework import DjangoFilterBackend
+
+class HoursViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
@@ -58,7 +65,6 @@ class HoursViewSet(viewsets.ModelViewSet ):
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['ymp_id']
-
 
 
 class SignupView(APIView):
@@ -92,8 +98,9 @@ class SignupView(APIView):
             send_mail("Welcome To YMP!", "Your YMP Id is: " + user.ymp_id, EMAIL_HOST_USER, [email], fail_silently=False)
             #send_email(email,"Welcome to YMP", "Your YMP Id is: " + str(user.ymp_id))
             token, created = Token.objects.get_or_create(user=user)
+            print(request.user.groups.all())
 
-            return Response({'User': username, 'Username': user.username, 'Id': user.ymp_id, 'token': token.key})
+            return Response({'User': username, 'Username': user.username, 'Id': user.ymp_id,'Groups':user.groups, 'token': token.key})
 
 class LoginView(APIView):
     permission_classes = [AllowAny]
@@ -111,7 +118,7 @@ class LoginView(APIView):
         if user is not None:
             login(request, user)
             token, created = Token.objects.get_or_create(user=user)
-            return Response({'User': username, 'Username': user.username, 'Id': user.ymp_id, 'token': token.key})
+            return Response({'User': username, 'Username': user.username, 'Id': user.ymp_id,'Groups': [group.name for group in user.groups.all()], 'token': token.key})
         else:
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
