@@ -120,7 +120,7 @@ const Hours = () => {
         }
       };
       if (usrslst.data.length > 0) {
-        if (usrData["email"] !== usrslst.data[0]["email"]) {
+        if (usrData["User"] !== usrslst.data[0]["email"]) {
           processUser(usrslst.data[0]);
         } else {
           alert(
