@@ -119,9 +119,14 @@ const Hours = () => {
           alert("Please enter a Real Team Lead Email");
         }
       };
-
       if (usrslst.data.length > 0) {
-        processUser(usrslst.data[0]);
+        if (usrData["email"] !== usrslst.data[0]["email"]) {
+          processUser(usrslst.data[0]);
+        } else {
+          alert(
+            "You cannot log your own hours, Please enter you Team Lead's Email"
+          );
+        }
       } else {
         alert("No User with that email is Found");
       }
