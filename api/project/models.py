@@ -89,9 +89,7 @@ class HourRecord(models.Model):
     date = models.DateField()
 
     def __str__(self):
-        CustomUser = apps.get_model('project', 'CustomUser')  # Replace 'app_name' with your app's name
-        user = CustomUser.objects.filter(ymp_id=self.ymp_id).first()
-        return str(self.id)+" "+str(self.ymp_id)+" "+str(user.username)+" "+str(self.date)
+        return f"{self.id} {self.ymp_id} {self.date}"
 
     def save(self, *args, **kwargs):
         is_new_record = not self.pk  # Check if it's a new record

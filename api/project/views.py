@@ -33,7 +33,7 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['ymp_id']
+    filterset_fields = ['email']
 
 class RoleViewSet(viewsets.ModelViewSet):
     """

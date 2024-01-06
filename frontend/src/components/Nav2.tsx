@@ -9,6 +9,7 @@ import facebook from "./s-face.png";
 import youtube from "./s-youtube.png";
 import discord from "./s-discord.png";
 import Logo from "./Logo.png";
+import { useNavigate } from "react-router-dom";
 
 interface Prop {
   Username: { User: string; Username: string; Id: number };
@@ -19,9 +20,14 @@ function ResponsiveAppBar(props: Prop) {
   const [login, setlogin] = useState(false);
   const [user, setuser] = useState(props.Username["Id"]);
   const usrData = JSON.parse(localStorage.getItem("Data") || "{}");
+  const history = useNavigate();
 
   const handleOpen = () => {
-    setSelect((Selects) => !Selects);
+    if (user === -999) {
+      history("/login/");
+    } else {
+      setSelect((Selects) => !Selects);
+    }
   };
   useEffect(() => {
     if (props.Username["Id"] === -999) {
@@ -58,7 +64,7 @@ function ResponsiveAppBar(props: Prop) {
         User: "false",
         Username: "false",
         Id: -999,
-        Group:"Student"
+        Group: "Student",
       })
     );
   }
@@ -66,11 +72,7 @@ function ResponsiveAppBar(props: Prop) {
   return (
     <nav className=" fixed bg-white border-gray-200  shadow-2xl top-0 dark:bg-gray-900 pb-2 w-screen mb-40 justify-center justify-content-center text-center bg-opacity-80 dark:bg-opacity-95">
       <div className="w-screen flex flex-wrap items-center justify-between  ">
-        <a
-          target="_blank"
-          href="/"
-          className="flex items-center space-x-3 rtl:space-x-reverse"
-        >
+        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <h2 className=" my-4 ml-20 Logo-txt  verticalLine pr-2 font-black logo ">
             <img src={Logo} className="NAV-Logo"></img>
           </h2>
@@ -152,19 +154,29 @@ function ResponsiveAppBar(props: Prop) {
               </p>
             </button>
 
-            <button
-              type="button"
-              className="flex px-3 py-2 ml-5 btn-txt bg-blue-500 text-white rounded-xl md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-              id="user-menu-button"
-              aria-expanded="false"
-              data-dropdown-toggle="user-dropdown"
-              data-dropdown-placement="bottom"
+            <a
+              target="_blank"
+              href="https://hcb.hackclub.com/donations/start/youthmentorshipproject"
+              className=""
             >
-              <span className="sr-only">Open user menu</span>
-              <a target="_blank" className="">
-                Donate
-              </a>
-            </button>
+              <button
+                type="button"
+                className="flex px-3 py-2 ml-5 btn-txt bg-blue-500 text-white rounded-xl md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                id="user-menu-button"
+                aria-expanded="false"
+                data-dropdown-toggle="user-dropdown"
+                data-dropdown-placement="bottom"
+              >
+                <span className="sr-only">Open user menu</span>
+                <a
+                  target="_blank"
+                  href="https://hcb.hackclub.com/donations/start/youthmentorshipproject"
+                  className=""
+                >
+                  Donate
+                </a>
+              </button>
+            </a>
 
             {Selects === true && props.Username["Id"] !== -999 ? (
               <>
@@ -179,14 +191,16 @@ function ResponsiveAppBar(props: Prop) {
                     </span>
                   </div>
                   <ul className="py-2" aria-labelledby="user-menu-button">
-                    {usrData["Groups"][0] !== "Student"? <li>
-                      <a
-                        href="/hours"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                      >
-                        Hours
-                      </a>
-                    </li>:null }
+                    {usrData["Groups"][0] !== "Student" ? (
+                      <li>
+                        <a
+                          href="/hours"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                        >
+                          Hours
+                        </a>
+                      </li>
+                    ) : null}
                     <li>
                       <a
                         href="#"

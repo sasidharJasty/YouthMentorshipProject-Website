@@ -13,17 +13,13 @@ const Hours = () => {
   const [resp, setresp] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [buttonClicked, setButtonClicked] = useState(false);
+  const [validEmail, setvalidEmail] = useState(false);
   const history = useNavigate();
-
-
 
   const DateConverter: React.FC<{ dateString: string }> = ({ dateString }) => {
     const dateObjectUTC = new Date(`${dateString}T24:00:00Z`);
 
     // Check if the dateObject is a valid date
-    if (isNaN(dateObjectUTC.getTime())) {
-      return <div>Invalid Date</div>;
-    }
 
     // Convert UTC to local time zone
     const dateObjectLocal = new Date(dateObjectUTC.toLocaleString());
@@ -47,7 +43,11 @@ const Hours = () => {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
   const usrData = JSON.parse(localStorage.getItem("Data") || "{}");
 
-  usrData["Groups"].map((item:String) =>{if(item === "Student"){history("/UnAuth");}})
+  usrData["Groups"].map((item: String) => {
+    if (item === "Student") {
+      history("/UnAuth");
+    }
+  });
 
   async function ren() {
     try {
@@ -78,31 +78,54 @@ const Hours = () => {
     e.preventDefault();
 
     try {
-      const utcDate = new Date(date + "T00:00:00Z").toISOString().split("T")[0];
-      const response = await axios.post(
-        "http://127.0.0.1:8000/Hours/",
-        {
-          ymp_id: usrData["Id"],
-          hours: Hours,
-          work_description: Description,
-          teamlead_email: TeamLead,
-          next_week_plans: nxtweek,
-          date: utcDate,
-        },
+      const usrslst = await axios.get(
+        "http://127.0.0.1:8000/users/?email=" + String(TeamLead),
         {
           headers: {
             Authorization: `Token ${token}`,
           },
         }
       );
-      setHours(0);
-      setTeamLead("");
-      setDescription("");
-      setdate("");
-      setnxtweek("");
-      setButtonClicked(false);
 
-      ren();
+      const processUser = async (resp: any) => {
+        if (resp["groups"][0] === 1 || resp["groups"][0] === 3) {
+          const utcDate = new Date(date + "T00:00:00Z")
+            .toISOString()
+            .split("T")[0];
+          const response = await axios.post(
+            "http://127.0.0.1:8000/Hours/",
+            {
+              ymp_id: usrData["Id"],
+              hours: Hours,
+              work_description: Description,
+              teamlead_email: TeamLead,
+              next_week_plans: nxtweek,
+              date: utcDate,
+            },
+            {
+              headers: {
+                Authorization: `Token ${token}`,
+              },
+            }
+          );
+          setHours(0);
+          setTeamLead("");
+          setDescription("");
+          setdate("");
+          setnxtweek("");
+
+          ren();
+        } else {
+          alert("Please enter a Real Team Lead Email");
+        }
+      };
+
+      if (usrslst.data.length > 0) {
+        processUser(usrslst.data[0]);
+      } else {
+        alert("No User with that email is Found");
+      }
+      setButtonClicked(false);
     } catch (error: any) {
       console.error("Signup failed:", error.response.data);
     }
@@ -136,8 +159,9 @@ const Hours = () => {
                     key={index}
                   >
                     <div className="flex w-1/4 pl-3">
-                    <h1 className="font-black text-5xl">{item["hours"]}</h1>
-                    <h1>hrs</h1></div>
+                      <h1 className="font-black text-5xl">{item["hours"]}</h1>
+                      <h1>hrs</h1>
+                    </div>
                     <div className="col-span-3">
                       <h1 className="ml-6 text-xl">
                         <DateConverter dateString={item["date"]} />
@@ -227,7 +251,6 @@ const Hours = () => {
                 type="submit"
                 className="bg-blue-400 px-20 py-1 mt-3 shadow-xl rounded-md  text-black "
                 disabled={buttonClicked}
-
               >
                 Submit
               </button>
