@@ -25,7 +25,18 @@ SECRET_KEY = 'django-insecure-a@v6)qmznabc0t_sh(0(ub%anvn_^k07#2t#6@%4f@x&$zla_+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    )
+}
+
+if not DEBUG:
+    REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"] = (
+            "rest_framework.renderers.JSONRenderer",
+        )
+
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost:5173']
 
 AUTH_USER_MODEL = "project.CustomUser"
 

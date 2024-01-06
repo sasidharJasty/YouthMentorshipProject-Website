@@ -9,6 +9,9 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = '__all__'
 
+class UserGroupCountSerializer(serializers.Serializer):
+    count = serializers.IntegerField()
+
 class RolesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Role

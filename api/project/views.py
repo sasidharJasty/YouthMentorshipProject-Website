@@ -25,6 +25,29 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.authtoken.models import Token
 import socket
 socket.getaddrinfo('localhost', 5173)
+# views.py  
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework import status
+from django.contrib.auth.models import Group
+from .serializers import UserGroupCountSerializer
+from rest_framework.viewsets import ViewSet
+
+class UserGroupCountViewSet(ViewSet):
+    def list(self, request, group_name=None):
+        try:
+            group = Group.objects.get(name=group_name)
+            count = group.user_set.count()
+
+            # Serialize the count
+            serializer = UserGroupCountSerializer({"count": count})
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Group.DoesNotExist:
+            return Response({"detail": "Group not found."}, status=status.HTTP_404_NOT_FOUND)
+
+
+
+
 class UserViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.

@@ -2,6 +2,8 @@
 import ResponsiveAppBar from "./Nav2";
 import Item from "./Item";
 import Carousel from "./carousel";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import { InstagramEmbed } from "react-social-media-embed";
 //Socials
 import tik from "./s-tik.png";
@@ -28,7 +30,34 @@ import Footer_logo from "./Footer-logo.png";
 const list: string[] = [SWE, BM, CDE, EY, unity];
 
 export default function Home() {
+  const [Student,setStudent] = useState(0);
+  const [Mentors,setMentors] = useState(0);
+
+
+  async function ren() {
+    try {
+      const Student = await axios.get(
+        "http://127.0.0.1:8000/group/Student/",
+      );
+      const Mentor = await axios.get(
+        "http://127.0.0.1:8000/group/Mentors/",
+      );
+      const Teamlead = await axios.get(
+        "http://127.0.0.1:8000/group/Teamlead/",
+      );
+      const Admin = await axios.get(
+        "http://127.0.0.1:8000/group/Admin/",
+      );
+      setMentors(Mentor.data["count"]+Teamlead.data["count"]+Admin.data["count"]);
+
+
+      setStudent(Student.data["count"]);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
   const val = JSON.parse(localStorage.getItem("Data") || "{}");
+  useEffect(()=>{ren()},[])
   return (
     <div className="main-display">
       <div>
@@ -193,11 +222,11 @@ export default function Home() {
                 </div>
                 <div>
                   <h1 className="API-info font-bold">Students</h1>
-                  <p className="API-Data">?</p>
+                  <p className="API-Data">{Student}</p>
                 </div>
                 <div>
                   <h1 className="API-info font-bold">Mentors</h1>
-                  <p className="API-Data">?</p>
+                  <p className="API-Data">{Mentors}</p>
                 </div>
               </div>
             </div>

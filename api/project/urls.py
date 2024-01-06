@@ -15,4 +15,5 @@ urlpatterns = [
     path('login/', views.LoginView.as_view(), name='login'),
     path('logout/', views.logout_view, name='logout'),
     path('signup/', views.SignupView.as_view(), name='signup'),
+    path('group/<str:group_name>/', views.UserGroupCountViewSet.as_view({'get': 'list'}), name='group-count'),
 ]

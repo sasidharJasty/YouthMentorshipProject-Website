@@ -161,7 +161,7 @@ function ResponsiveAppBar(props: Prop) {
             >
               <button
                 type="button"
-                className="flex px-3 py-2 ml-5 btn-txt bg-blue-500 text-white rounded-xl md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                className="flex px-3 py-2  btn-txt bg-blue-500 text-white rounded-xl md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                 id="user-menu-button"
                 aria-expanded="false"
                 data-dropdown-toggle="user-dropdown"

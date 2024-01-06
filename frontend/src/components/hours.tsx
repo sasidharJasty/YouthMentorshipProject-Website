@@ -4,6 +4,19 @@ import { useNavigate } from "react-router-dom";
 import ResponsiveAppBar from "./Nav2";
 import "./hours.css";
 
+
+interface HourItem {
+  ymp_id: string;
+  hours: number;
+  work_description: string;
+  teamlead_email: string;
+  next_week_plans: string;
+  approved: boolean;
+  denied: boolean;
+  date: string;
+}
+
+
 const Hours = () => {
   const [Hours, setHours] = useState(0);
   const [TeamLead, setTeamLead] = useState("");
@@ -13,8 +26,44 @@ const Hours = () => {
   const [resp, setresp] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [buttonClicked, setButtonClicked] = useState(false);
-  const [validEmail, setvalidEmail] = useState(false);
+  const [status, setstatus] = useState("loading");
+  const [denHRS, setdenHRS] = useState(0);
+  const [penHRS, setpenHRS] = useState(0);
+  const [appHRS, setappHRS] = useState(0);
+  const [selectedItem, setSelectedItem] = useState<HourItem | null>(null);
+
   const history = useNavigate();
+  const getStatusClassName = (item: HourItem) => {
+    if (item.approved === false) {
+      if (item.denied === false) {
+
+        return "pending-class"; // Replace with your desired class for Pending status
+      } else {
+
+        return "denied-class"; // Replace with your desired class for Denied status
+        
+      }
+    } else {
+      return "approved-class"; // Replace with your desired class for Approved status
+      
+    }
+  };
+  useEffect(() => {
+    const updateHours = (item: HourItem) => {
+      if (item.approved === false) {
+        if (item.denied === false) {
+          setpenHRS((prev) => prev + item.hours);
+        } else {
+          setdenHRS((prev) => prev + item.hours);
+        }
+      } else {
+        setappHRS((prev) => prev + item.hours);
+      }
+    };
+
+    // Call updateHours for each item in resp when resp changes
+    (resp || []).forEach(updateHours);
+  }, [resp]);
 
   const DateConverter: React.FC<{ dateString: string }> = ({ dateString }) => {
     const dateObjectUTC = new Date(`${dateString}T24:00:00Z`);
@@ -36,18 +85,38 @@ const Hours = () => {
       options
     );
 
-    return <div>{formattedDate}</div>;
+    return formattedDate;
   };
 
   const val = JSON.parse(localStorage.getItem("Data") || "{}");
   const token = JSON.parse(localStorage.getItem("token") || "{}");
   const usrData = JSON.parse(localStorage.getItem("Data") || "{}");
 
+  function Status(approved:boolean, denied:boolean){
+    if(approved === false){
+      if(denied === false){
+        setstatus("Pending")
+      }else{
+        setstatus("Denied")
+      }
+      
+    }else{
+      setstatus("Approved");
+    }
+  }
   usrData["Groups"].map((item: String) => {
     if (item === "Student") {
       history("/UnAuth");
     }
   });
+  const openPopup = (item: HourItem) => {
+    setSelectedItem(item);
+    Status(item.approved,item.denied);
+  };
+
+  const closePopup = () => {
+    setSelectedItem(null);
+  };
 
   async function ren() {
     try {
@@ -75,7 +144,10 @@ const Hours = () => {
 
   const handleHours = async (e: React.FormEvent) => {
     setButtonClicked(true);
+
+
     e.preventDefault();
+
 
     try {
       const usrslst = await axios.get(
@@ -148,20 +220,25 @@ const Hours = () => {
             }}
           />
           <div className="w-full h-auto rounded-lg mx-5 my-12 grid grid-cols-2 text-black">
-            <div>
+            <div className="">
+              <div className="flex">
               <div className="justify-center content-center text-center">
                 <h1 className="text-3xl font-black  mt-11">
                   {usrData["Username"]}
                 </h1>
                 <h1 className="text-3xl font-semibold text-gray-400">
-                  {usrData["Id"]}
+                  {usrData["Id"]} 
                 </h1>
+
+              </div>
+              <div className="justify-center content-center text-center mt-12 flex"><h1 className="text-3xl font-semibold text-green-400 ml-10 mr-10">Approved <br />{appHRS}</h1><h1 className="text-3xl font-semibold text-purple-400 mr-10">Pending <br/>{penHRS}</h1><h1 className="text-3xl font-semibold text-red-400 mr-10">Denied <br/>{denHRS}</h1></div>
               </div>
               <div className=" Past-Hours">
                 {(resp || []).map((item, index) => (
                   <div
-                    className="flex mt-7 bg-purple-500 shadow-2xl rounded-xl p-1 grid  grid-cols-4 gap-2"
+                    className={"flex mt-7 shadow-2xl rounded-xl p-1 grid  grid-cols-4 gap-2 " +getStatusClassName(item) }
                     key={index}
+                    onClick={() => openPopup(item)}
                   >
                     <div className="flex w-1/4 pl-3">
                       <h1 className="font-black text-5xl">{item["hours"]}</h1>
@@ -261,6 +338,30 @@ const Hours = () => {
               </button>
             </form>
           </div>
+          {selectedItem && (
+            <>
+              <div
+                className="overlay"
+                onClick={closePopup}
+                style={{ zIndex: 9998 }}
+              />
+              <div className="popup" style={{ zIndex: 9999 }}>
+                <div className="popup-content text-center">
+                  <h1 className="font-black text-lg">Details</h1>
+                  <h2># of hours recorded: {selectedItem.hours}</h2>
+                  <br />
+                  <p>Work description: {selectedItem.work_description}</p>
+                  <br />
+                  <p>Plans for next week: {selectedItem.next_week_plans}</p>
+                  <br />
+                  <p className="flex">Date of Monday:  <DateConverter dateString={selectedItem.date} /></p>
+                  <p>Status: {status}</p>
+                  <br />
+                  <button onClick={closePopup}>Close Popup</button>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       ) : (
         history("/UnAuth")
