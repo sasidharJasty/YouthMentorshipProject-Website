@@ -42,6 +42,7 @@
 .denied-class {background-color: lightcoral;}
 
 .pending-class {background-color: rgba(106, 76, 227, 1);}
+.pending-txt {color:rgba(106, 76, 227, 1);}
 
 .approved-class {background-color: lime;}
 

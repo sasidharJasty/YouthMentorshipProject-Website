@@ -231,7 +231,7 @@ const Hours = () => {
                 </h1>
 
               </div>
-              <div className="justify-center content-center text-center mt-12 flex"><h1 className="text-3xl font-semibold text-green-400 ml-10 mr-10">Approved <br />{appHRS}</h1><h1 className="text-3xl font-semibold text-purple-400 mr-10">Pending <br/>{penHRS}</h1><h1 className="text-3xl font-semibold text-red-400 mr-10">Denied <br/>{denHRS}</h1></div>
+              <div className="justify-center content-center text-center mt-12 flex"><h1 className="text-3xl font-semibold text-green-400 ml-10 mr-10">Approved <br />{appHRS}</h1><h1 className="text-3xl font-semibold pending-txt mr-10">Pending <br/>{penHRS}</h1><h1 className="text-3xl font-semibold text-red-400 mr-10">Denied <br/>{denHRS}</h1></div>
               </div>
               <div className=" Past-Hours">
                 {(resp || []).map((item, index) => (

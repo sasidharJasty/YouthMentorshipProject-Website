@@ -11,17 +11,26 @@ import discord from "./s-discord.png";
 import Logo from "./Logo.png";
 import { useNavigate } from "react-router-dom";
 
+
+
 interface Prop {
   Username: { User: string; Username: string; Id: number };
 }
 
 function ResponsiveAppBar(props: Prop) {
+  const [selectedItem, setSelectedItem] = useState(false);
   const [Selects, setSelect] = useState(false);
   const [login, setlogin] = useState(false);
   const [user, setuser] = useState(props.Username["Id"]);
   const usrData = JSON.parse(localStorage.getItem("Data") || "{}");
   const history = useNavigate();
 
+  const closePopup = () => {
+    setSelectedItem(false);
+  }
+  const openPopup = () => {
+    setSelectedItem(true);
+  }
   const handleOpen = () => {
     if (user === -999) {
       history("/login/");
@@ -210,12 +219,12 @@ function ResponsiveAppBar(props: Prop) {
                       </a>
                     </li>
                     <li>
-                      <a
-                        href="#"
+                      <h1
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                        onClick={openPopup}
                       >
-                        Earnings
-                      </a>
+                        Profile
+                      </h1>
                     </li>
                     <li>
                       <a
@@ -314,6 +323,46 @@ function ResponsiveAppBar(props: Prop) {
           </ul>
         </div>
       </div>
+      {selectedItem && (
+        <>
+          <div
+            className="overlay"
+            onClick={closePopup}
+            style={{ zIndex: 9998 }}
+          />
+          <div className="popup" style={{ zIndex: 9999 }}>
+            <div className="popup-content text-center">
+              <h1 className="font-black text-lg text-center">Information</h1>
+              <hr />
+              <br />
+              <br />
+
+              <div className="grid grid-cols-3 gap-4 text-left w-full h-full">
+                <div className="w-full h-full CONTENT">IMGAGES GO HERE</div>
+
+
+              <div className="col-span-2 grid grid-cols-2 w-full gap-x-20 gap-y-10">
+                <h2><strong>Username </strong><br /> {usrData["Username"]}</h2>
+                <p><strong>YMP ID</strong> <br />{usrData["Id"]}</p>
+
+
+
+
+                <p className="" ><strong>Email</strong><br />{usrData["User"]}</p>
+                <p className=""><strong>Role</strong><br />{usrData["Groups"][0]}</p>
+              </div>
+              </div>
+
+
+
+
+              <br />
+              <br />
+              <button onClick={closePopup}>Close Popup</button>
+            </div>
+          </div>
+        </>
+      )}
     </nav>
   );
 }

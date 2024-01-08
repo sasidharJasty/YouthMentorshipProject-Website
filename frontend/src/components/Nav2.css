@@ -31,3 +31,6 @@
 .Selector {
   max-width: 10vw;
 }
+.CONTENT {
+  background-image: linear-gradient( to bottom right,#6D2793 ,#AF91E8);
+}
