@@ -20,7 +20,6 @@ interface Prop {
 function ResponsiveAppBar(props: Prop) {
   const [selectedItem, setSelectedItem] = useState(false);
   const [Selects, setSelect] = useState(false);
-  const [login, setlogin] = useState(false);
   const [user, setuser] = useState(props.Username["Id"]);
   const usrData = JSON.parse(localStorage.getItem("Data") || "{}");
   const history = useNavigate();
@@ -40,15 +39,13 @@ function ResponsiveAppBar(props: Prop) {
   };
   useEffect(() => {
     if (props.Username["Id"] === -999) {
-      setlogin(true);
       setuser(-999);
     }
   }, []);
   async function logout() {
     try {
-      await axios.post("http://127.0.0.1:8000/logout/");
+      await axios.post("http://127.0.0.1:8000/04D2430AAFE10AA4/logout/");
       setSelect(false);
-      setlogin(true);
       setuser(-999);
     } catch (error: any) {
       // Handle error if needed
@@ -60,7 +57,6 @@ function ResponsiveAppBar(props: Prop) {
     localStorage.removeItem("token");
     localStorage.clear();
 
-    setlogin(true);
     setuser(-999);
 
     // Clear the Authorization header in axios defaults
@@ -152,7 +148,7 @@ function ResponsiveAppBar(props: Prop) {
               onClick={handleOpen}
             >
               <span className="sr-only">Open user menu</span>
-              <p className="">
+              <div className="">
                 {user !== -999 ? (
                   <p className="">{props.Username["Username"]} ▼</p>
                 ) : (
@@ -160,7 +156,7 @@ function ResponsiveAppBar(props: Prop) {
                     Log In
                   </a>
                 )}{" "}
-              </p>
+              </div>
             </button>
 
             <a
@@ -177,13 +173,7 @@ function ResponsiveAppBar(props: Prop) {
                 data-dropdown-placement="bottom"
               >
                 <span className="sr-only">Open user menu</span>
-                <a
-                  target="_blank"
-                  href="https://hcb.hackclub.com/donations/start/youthmentorshipproject"
-                  className=""
-                >
                   Donate
-                </a>
               </button>
             </a>
 
@@ -256,9 +246,7 @@ function ResponsiveAppBar(props: Prop) {
               >
                 <path
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+
                   d="M1 1h15M1 7h15M1 13h15"
                 />
               </svg>

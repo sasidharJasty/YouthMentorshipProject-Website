@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from rest_framework import permissions
 from .serializers import UserSerializer, RolesSerializer, LogsSerializer, HoursSerializer
 import smtplib
+from django.shortcuts import render
 import random
 from django.core.mail import send_mail
 from django.core.mail import EmailMessage
@@ -144,6 +145,9 @@ class LoginView(APIView):
             return Response({'User': username, 'Username': user.username, 'Id': user.ymp_id,'Groups': [group.name for group in user.groups.all()], 'token': token.key})
         else:
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+
+def index(request):
+    return render(request, "dist/index.html")
 
 @api_view(['POST'])
 def logout_view(request):

@@ -3,7 +3,7 @@ import ResponsiveAppBar from "./Nav2";
 import Item from "./Item";
 import Carousel from "./carousel";
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { InstagramEmbed } from "react-social-media-embed";
 //Socials
 import tik from "./s-tik.png";
@@ -37,16 +37,16 @@ export default function Home() {
   async function ren() {
     try {
       const Student = await axios.get(
-        "http://127.0.0.1:8000/group/Student/",
+        "http://127.0.0.1:8000/04D2430AAFE10AA4/group/Student/",
       );
       const Mentor = await axios.get(
-        "http://127.0.0.1:8000/group/Mentors/",
+        "http://127.0.0.1:8000/04D2430AAFE10AA4/group/Mentors/",
       );
       const Teamlead = await axios.get(
-        "http://127.0.0.1:8000/group/Teamlead/",
+        "http://127.0.0.1:8000/04D2430AAFE10AA4/group/Teamlead/",
       );
       const Admin = await axios.get(
-        "http://127.0.0.1:8000/group/Admin/",
+        "http://127.0.0.1:8000/04D2430AAFE10AA4/group/Admin/",
       );
       setMentors(Mentor.data["count"]+Teamlead.data["count"]+Admin.data["count"]);
 

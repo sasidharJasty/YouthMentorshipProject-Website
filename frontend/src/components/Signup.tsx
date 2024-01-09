@@ -17,7 +17,7 @@ function Signup() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/signup/", {
+      const response = await axios.post("http://127.0.0.1:8000/04D2430AAFE10AA4/signup/", {
         email: email,
         username: username,
         password: password,

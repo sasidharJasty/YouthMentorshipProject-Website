@@ -121,7 +121,7 @@ const Hours = () => {
   async function ren() {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8000/Hours/?ymp_id=" + String(val["Id"]),
+        "http://127.0.0.1:8000/04D2430AAFE10AA4/Hours/?ymp_id=" + String(val["Id"]),
         {
           headers: {
             Authorization: `Token ${token}`,
@@ -151,7 +151,7 @@ const Hours = () => {
 
     try {
       const usrslst = await axios.get(
-        "http://127.0.0.1:8000/users/?email=" + String(TeamLead),
+        "http://127.0.0.1:8000/04D2430AAFE10AA4/users/?email=" + String(TeamLead),
         {
           headers: {
             Authorization: `Token ${token}`,
@@ -164,8 +164,8 @@ const Hours = () => {
           const utcDate = new Date(date + "T00:00:00Z")
             .toISOString()
             .split("T")[0];
-          const response = await axios.post(
-            "http://127.0.0.1:8000/Hours/",
+        await axios.post(
+            "http://127.0.0.1:8000/04D2430AAFE10AA4/Hours/",
             {
               ymp_id: usrData["Id"],
               hours: Hours,

@@ -1,4 +1,3 @@
-import ResponsiveAppBar from "./Nav2";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -10,10 +9,9 @@ import axios from "axios";
       }}
     />*/
 export default function Logout() {
-  const val = JSON.parse(localStorage.getItem("Data") || "{}");
   const history = useNavigate();
   async function logout() {
-    const response = await axios.post("http://127.0.0.1:8000/logout/");
+    await axios.post("http://127.0.0.1:8000/04D2430AAFE10AA4/logout/");
     localStorage.setItem(
       "Data",
       JSON.stringify({
@@ -35,7 +33,6 @@ export default function Logout() {
     );
 
     history("/");
-    const val = JSON.parse(localStorage.getItem("Data") || "{}");
   }
   return (
     <div className="relative">
