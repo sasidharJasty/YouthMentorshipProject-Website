@@ -37,7 +37,7 @@ if not DEBUG:
             "rest_framework.renderers.JSONRenderer",
         )
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost:5173']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost:5173', 'localhost:8000', 'localhost']
 
 AUTH_USER_MODEL = "project.CustomUser"
 

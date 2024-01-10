@@ -31,8 +31,11 @@ const Hours = () => {
   const [penHRS, setpenHRS] = useState(0);
   const [appHRS, setappHRS] = useState(0);
   const [selectedItem, setSelectedItem] = useState<HourItem | null>(null);
-
+  const usrData = JSON.parse(localStorage.getItem("Data") || "{}");
   const history = useNavigate();
+  if(usrData["Id"] === -999){
+    history("/");
+  }
   const getStatusClassName = (item: HourItem) => {
     if (item.approved === false) {
       if (item.denied === false) {
@@ -90,7 +93,6 @@ const Hours = () => {
 
   const val = JSON.parse(localStorage.getItem("Data") || "{}");
   const token = JSON.parse(localStorage.getItem("token") || "{}");
-  const usrData = JSON.parse(localStorage.getItem("Data") || "{}");
 
   function Status(approved:boolean, denied:boolean){
     if(approved === false){
