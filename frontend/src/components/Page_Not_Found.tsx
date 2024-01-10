@@ -3,7 +3,7 @@ import "./Page_Not_Found.css";
 
 export default function Page_Not_Found() {
   const usrData = JSON.parse(
-    localStorage.getItem("Data") || "{User:'Login',Username:'Login',Id:-999}"
+    localStorage.getItem("Data") || "{User:'Login',Username:'Login',Id:-999,Groups:'Students'}"
   );
   return (
     <div className="w-screen h-screen">

@@ -31,7 +31,7 @@ const Hours = () => {
   const [penHRS, setpenHRS] = useState(0);
   const [appHRS, setappHRS] = useState(0);
   const [selectedItem, setSelectedItem] = useState<HourItem | null>(null);
-  const usrData = JSON.parse(localStorage.getItem("Data") || "{}");
+  const usrData = JSON.parse(localStorage.getItem("Data") ||"{User:'Login',Username:'Login',Id:-999,Groups:'Students'}");
   const history = useNavigate();
   if(usrData["Id"] === -999){
     history("/");
@@ -106,11 +106,12 @@ const Hours = () => {
       setstatus("Approved");
     }
   }
+  if(usrData["Id"]!==-999){
   usrData["Groups"].map((item: String) => {
     if (item === "Student") {
       history("/UnAuth");
     }
-  });
+  });}else{history("/UnAuth");}
   const openPopup = (item: HourItem) => {
     setSelectedItem(item);
     Status(item.approved,item.denied);
@@ -238,7 +239,7 @@ const Hours = () => {
               <div className=" Past-Hours">
                 {(resp || []).map((item, index) => (
                   <div
-                    className={"flex mt-7 shadow-2xl rounded-xl p-1 grid  grid-cols-4 gap-2 " +getStatusClassName(item) }
+                    className={" mt-7 shadow-2xl rounded-xl p-1 grid  grid-cols-4 gap-2 " +getStatusClassName(item) }
                     key={index}
                     onClick={() => openPopup(item)}
                   >

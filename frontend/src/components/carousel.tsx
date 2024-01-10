@@ -52,8 +52,8 @@ export default Carousel;*/
 
 import React, { useState } from "react";
 import "./Carousel.css"; // Import a separate CSS file for styling
-import left_arr from "./left.png";
-import right_arr from "./right.png";
+import left_arr from "../../public/left.png";
+import right_arr from "../../public/right.png";
 
 interface CarouselProps {
   display: string[];

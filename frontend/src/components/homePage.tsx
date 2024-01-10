@@ -6,12 +6,12 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { InstagramEmbed } from "react-social-media-embed";
 //Socials
-import tik from "./s-tik.png";
-import linkedin from "./s-linkedin.png";
-import insta from "./s-insta.png";
-import facebook from "./s-face.png";
-import youtube from "./s-youtube.png";
-import discord from "./s-discord.png";
+import tik from "../../public/socials/s-tik.png";
+import linkedin from "../../public/socials/s-linkedin.png";
+import insta from "../../public/socials/s-insta.png";
+import facebook from "../../public/socials/s-face.png";
+import youtube from "../../public/socials/s-youtube.png";
+import discord from "../../public/socials/s-discord.png";
 //sponsors
 import SWE from "./Carousel/SWE.png";
 import BM from "./Carousel/bm.png";
@@ -20,12 +20,12 @@ import EY from "./Carousel/EY.png";
 import unity from "./Carousel/unity.png";
 
 //images
-import map from "./map.png";
-import mic from "./mic.png";
-import speaker from "./speaker.png";
-import award from "./award.png";
-import divider from "./divider.png";
-import Footer_logo from "./Footer-logo.png";
+import map from "../../public/map.png";
+import mic from "../../public/mic.png";
+import speaker from "../../public/speaker.png";
+import award from "../../public/award.png";
+import divider from "../../public/divider.png";
+import Footer_logo from "../../public/Footer-logo.png";
 
 const list: string[] = [SWE, BM, CDE, EY, unity];
 
@@ -56,7 +56,7 @@ export default function Home() {
       console.error("Error fetching data:", error);
     }
   }
-  const val = JSON.parse(localStorage.getItem("Data") || "{}");
+  const val = JSON.parse(localStorage.getItem("Data") || "{User:'Login',Username:'Login',Id:-999,Groups:'Students'}");
   useEffect(()=>{ren()},[])
   return (
     <div className="main-display">

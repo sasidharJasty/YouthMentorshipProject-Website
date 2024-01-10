@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import "./homePage.css";
 import axios from "axios";
 import "./Nav2.css";
-import tik from "./s-tik.png";
-import linkedin from "./s-linkedin.png";
-import insta from "./s-insta.png";
-import facebook from "./s-face.png";
-import youtube from "./s-youtube.png";
-import discord from "./s-discord.png";
-import Logo from "./Logo.png";
+import tik from "../../public/socials/s-tik.png";
+import linkedin from "../../public/socials/s-linkedin.png";
+import insta from "../../public/socials/s-insta.png";
+import facebook from "../../public/socials/s-face.png";
+import youtube from "../../public/socials/s-youtube.png";
+import discord from "../../public/socials/s-discord.png";
+import Logo from "../../public/Logo.png";
 import { useNavigate } from "react-router-dom";
 
 

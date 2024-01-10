@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import login from "./login.png";
+import login from "../../public/Login.png";
 import "./Signup.css";
 import ResponsiveAppBar from "./Nav2";
 

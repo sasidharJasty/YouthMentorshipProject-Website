@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import login from "./login.png";
+import login from "../../public/login.png";
 import "./Signup.css";
 import ResponsiveAppBar from "./Nav2";
 
@@ -9,7 +9,6 @@ function Signup() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setemail] = useState("");
-  const [id, setid] = useState(-999);
   const [lgf, setlgf] = useState(false);
   const [err, seterr] = useState("");
   const history = useNavigate();
@@ -34,7 +33,6 @@ function Signup() {
       axios.defaults.headers.common["Authorization"] = `Token ${token}`;
 
       localStorage.setItem("Data", JSON.stringify(response.data));
-      setid(response.data["Id"]);
 
       // Redirect or perform other actions on successful signup
     } catch (error: any) {
@@ -51,7 +49,7 @@ function Signup() {
         Username={{
           User: email,
           Username: username,
-          Id: id,
+          Id: -999,
         }}
       />
       <div className="w-full h-full   grid grid-cols-2 text-black">
