@@ -37,7 +37,6 @@ function Signup() {
       // Redirect or perform other actions on successful signup
     } catch (error: any) {
       seterr(error.response.data["error"]);
-      console.log(error.response.data["error"]);
 
       setlgf(true);
     }

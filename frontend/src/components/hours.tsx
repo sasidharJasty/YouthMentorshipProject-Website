@@ -30,6 +30,7 @@ const Hours = () => {
   const [denHRS, setdenHRS] = useState(0);
   const [penHRS, setpenHRS] = useState(0);
   const [appHRS, setappHRS] = useState(0);
+  const [err, seterr] = useState("");
   const [selectedItem, setSelectedItem] = useState<HourItem | null>(null);
   const usrData = JSON.parse(localStorage.getItem("Data") ||"{User:'Login',Username:'Login',Id:-999,Groups:'Students'}");
   const history = useNavigate();
@@ -133,8 +134,8 @@ const Hours = () => {
       );
 
       setresp(response.data.reverse());
-    } catch (error) {
-      console.error("Error fetching data:", error);
+    } catch (error:any) {
+      seterr(error.response.data["error"]);
     }
   }
 
@@ -267,6 +268,7 @@ const Hours = () => {
                 <p className="text-gray-600 text-xl font-medium mt-20 mb-5">
                   Enter information to Log Hours
                 </p>
+                <p className="text-red-600 text-lg font-bold mb-2">{err}</p>
                 <p className="w-1/ mb-1 text-gray-700 font-semibold">Hours</p>
                 <input
                   className="mb-3 rounded-md py-2 w-1/2 pl-3 boo shadow-xl"
