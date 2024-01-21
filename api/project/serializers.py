@@ -26,3 +26,10 @@ class HoursSerializer(serializers.ModelSerializer):
     class Meta:
         model = HourRecord
         fields = '__all__'
+
+class ChangePasswordSerializer(serializers.Serializer):
+    old_password = serializers.CharField(required=True)
+    new_password = serializers.CharField(required=True)
+
+class ResetPasswordEmailSerializer(serializers.Serializer):
+    email = serializers.EmailField(required=True)
