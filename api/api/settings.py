@@ -29,7 +29,10 @@ DEBUG = True
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
-    )
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
 }
 
 if not DEBUG:
@@ -55,8 +58,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'project',
-    "api"
+    'django_rest_passwordreset',
+    "api",
+    'project.apps.ProjectConfig'
 ]
 
 REST_FRAMEWORK = {
