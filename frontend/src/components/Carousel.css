@@ -1,0 +1,39 @@
+.carousel-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.carousel-button {
+  font-size: 24px; /* Adjust font size as needed */
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 5vw;
+}
+
+.carousel {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  margin: 0 10px; /* Adjust spacing between images */
+  justify-content: space-between; /* Center the images */
+}
+
+.carousel img {
+  height: auto;
+  max-width: 100%; /* Ensure images don't exceed their natural size */
+  min-height: 20vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  object-fit: contain; /* Maintain aspect ratio and fit within the container */
+}
+.carousel-btn {
+  min-height: 8vh;
+  width: auto;
+}
+.Message {
+  font-size: 2vw;
+  color: rgba(77, 18, 151, 1);
+}

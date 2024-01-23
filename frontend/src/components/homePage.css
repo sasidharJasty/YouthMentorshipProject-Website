@@ -1,0 +1,243 @@
+.API {
+  width: 30vw;
+  margin-left: 12vw;
+}
+.API-Data {
+  font-size: 5vw;
+  font-weight: bold;
+  color: rgba(106, 76, 227, 1);
+  padding-bottom: 2vh;
+}
+
+.API-grid {
+  margin-left: 5vw;
+  text-align: center;
+}
+.API-info {
+  font-size: 1.7vw;
+  color: rgba(77, 18, 151, 1);
+}
+.logo {
+  background: -webkit-linear-gradient(to right, #3e3bd4, #a46bec);
+  -webkit-text-fill-color: transparent;
+  background-color: linear-gradient(to right, #3e3bd4, #a46bec);
+  font-size: 5vw;
+}
+
+.verticalLine {
+  border-right: thin solid #e5d4ff;
+}
+.Redirect-txt {
+  font-size: 1vw;
+}
+.info-box {
+  margin-top: 86vh;
+}
+.contain {
+  background-color: rgba(238, 239, 255, 1);
+}
+.divider {
+  left: 52%;
+  margin-top: 85vh;
+  min-height: 130vh;
+  width: auto;
+  height: auto/9;
+  max-height: 200vh;
+}
+.Grid-content {
+  font-size: 1.8vw;
+  color: rgba(77, 18, 151, 1);
+  padding-bottom: 1vh;
+  padding-left: 2vw;
+}
+.Divider-title-txt {
+  font-size: 3vw;
+  font-weight: bold;
+  color: rgba(77, 18, 151, 1);
+  line-height: 1;
+  padding-left: 2vw;
+}
+.grid {
+  padding-left: 0vw;
+}
+.Grid-img {
+  margin-top: 1vh;
+  padding-right: 1.2vw;
+  max-width: 100%;
+  min-width: 3vw;
+  width: auto/9;
+  height: auto;
+}
+.Grid-content-P {
+  padding-left: 2vw;
+  font-size: 1.5vw;
+}
+
+.Redirect-txt-btn {
+  font-size: 1vw;
+  padding-top: 0.25vh;
+  padding-bottom: 0.25vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+.Img-bg {
+  background-image: url("https://i.ibb.co/6y0dx0Z/Whats-App-Image-2023-12-03-at-19-19-48-98168732.jpg");
+  margin-top: 25vh;
+}
+.img {
+  margin-top: 15vh;
+  width: 100vw;
+}
+.Login-Title {
+  font-size: 3vw;
+}
+.TitleText {
+  color: #4d1297;
+  font-size: 9vh;
+  line-height: 1.2;
+}
+.info-ft {
+  font-size: 1vw;
+}
+.Login.img {
+  min-height: 100%;
+}
+.title-container {
+  position: relative;
+}
+
+.girlslearn {
+  width: 60%;
+}
+.Title-btn {
+  background-color: #6659f4;
+  padding: 18px;
+  border-radius: 18px;
+  padding-left: 35px;
+  padding-right: 35px;
+  color: white;
+  font-size: 3vh;
+}
+
+.Carousel {
+  max-width: 75vw;
+  min-width: 75vw;
+}
+.Carousel-info {
+  background-color: white;
+  color: rgba(77, 18, 151, 1);
+  min-height: 60vh;
+  border-radius: 25px;
+  min-width: 97%;
+}
+.c-text {
+  font-size: 2.5vh;
+}
+.bg {
+  background-color: #eeefff;
+  margin-top: 60vh;
+  min-height: 200vh;
+}
+.Item {
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  min-width: 20vw;
+  max-width: 20vw;
+}
+.Item-h4 {
+  color: rgba(77, 18, 151, 1);
+  font-size: 2vw;
+}
+.c-title {
+  font-size: 4vh;
+  line-height: 1.25;
+}
+.Item-btn {
+  background-color: rgba(77, 18, 151, 1);
+  font-size: 2.5vh;
+  color: white;
+  transition: font-size 1s ease-in-out;
+}
+.Item-btn:hover {
+  background-color: rgb(145, 85, 218);
+  color: white;
+  font-size: 2.5vh;
+}
+.Item-p {
+  font-size: 1.2vw;
+}
+.sponsor {
+  padding-top: 300vh;
+}
+.Footer {
+  padding-top: 340vh;
+}
+.Footer-content {
+  height: 28vh;
+  background-color: rgba(77, 18, 151, 1);
+}
+.Footer-image {
+  margin-top: 8vh;
+  margin-left: 4vw;
+  width: 26vw;
+  height: 12vh;
+}
+.Terms-links {
+  font-size: 1.1vw;
+  color: white;
+  margin-top: 4vh;
+  margin-left: 7vw;
+}
+.NAV-links {
+  font-size: 1.1vw;
+  color: white;
+  margin-top: 4vh;
+  margin-left: 2vw;
+}
+.Chapter-links {
+  font-size: 1.1vw;
+  color: white;
+  margin-top: 4vh;
+  margin-left: 7vw;
+}
+.Link {
+  margin-bottom: 2.2vh;
+}
+.Video-Bar {
+  padding-top: 235vh;
+}
+.Video {
+  margin-left: 2.5vw;
+  min-width: 60vw;
+  min-height: 60vh;
+  padding-right: 1vw;
+  width: auto;
+  height: auto;
+}
+.Video-Title {
+  margin-top: 10vh;
+  font-size: 3.5vw;
+  line-height: 1;
+  font-weight: bold;
+  color: rgba(77, 18, 151, 1);
+  margin-bottom: 4vh;
+}
+.Video-description {
+  font-size: 2vw;
+  line-height: 1.3;
+}
+.Footer-socials {
+  min-width: 2vw;
+  margin-left: 1vw;
+  margin-top: 1vh;
+  height: auto;
+  filter: invert(100%) sepia(1%) saturate(2%) hue-rotate(342deg)
+    brightness(115%) contrast(101%);
+}
+.socials {
+  font-size: 1.8vw;
+  margin-top: 8vh;
+  margin-left: 1vw;
+  text-align: center;
+}
