@@ -61,15 +61,15 @@ class CustomUser(AbstractUser):
 
 class Role(models.Model):
     department = models.CharField(max_length=255)
-    ymp_id = models.IntegerField(max_length=8)
+    ymp_id = models.IntegerField()
     role_name = models.CharField(max_length=100, blank=True)
-    role_level = models.IntegerField(max_length=7)
+    role_level = models.IntegerField()
     ordinal = models.IntegerField()
 
 class Logs(models.Model):
-    ymp_id = models.IntegerField(max_length=8)
+    ymp_id = models.IntegerField()
     name = models.CharField(max_length=255)
-    hours = models.IntegerField(max_length=7)
+    hours = models.IntegerField()
     description = models.TextField()
     ordinal = models.IntegerField() 
 

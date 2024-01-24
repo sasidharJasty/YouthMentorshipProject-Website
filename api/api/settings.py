@@ -60,7 +60,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_rest_passwordreset',
     "api",
-    'project.apps.ProjectConfig'
+    'project.apps.ProjectConfig',
+    'sslserver'
 ]
 
 REST_FRAMEWORK = {
@@ -166,5 +167,12 @@ EMAIL_HOST_USER = 'noreply@youthmentorshipproject.org'
 EMAIL_HOST_PASSWORD = 'nkuqihegijpcjmlk'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-
+DJANGO_LOG_LEVEL=DEBUG
 CORS_ORIGIN_ALLOW_ALL = True
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+#openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout localhost.key -out localhost.crt

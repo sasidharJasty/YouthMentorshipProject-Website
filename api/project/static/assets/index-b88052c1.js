@@ -16519,7 +16519,7 @@ function ax() {
   }
   const l = JSON.parse(
     localStorage.getItem("Data") ||
-      "{User:'Login',Username:'Login',Id:-999,Groups:'Students'}"
+      '{"User":"Login","Username":"Login","Id":-999,"Groups":"Students"}'
   );
   return (
     A.useEffect(() => {
@@ -17572,7 +17572,7 @@ function fx() {
     [l, i] = A.useState(!1),
     s = JSON.parse(
       localStorage.getItem("Data") ||
-        "{User:'Login',Username:'Login',Id:-999,Groups:'Students'}"
+        '{"User":"Login","Username":"Login","Id":-999,"Groups":"Students"}'
     ),
     a = async (c) => {
       c.preventDefault(), i(!0);
