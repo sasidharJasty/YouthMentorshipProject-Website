@@ -162,18 +162,29 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 DJANGO_LOG_LEVEL=DEBUG
 CORS_ORIGIN_ALLOW_ALL = True
+#SECURE_SSL_REDIRECT = True
+
 
 if DEBUG:
     # Development server settings
-    SECURE_SSL_REDIRECT = False  # Set to True to enable SSL redirection
-    CSRF_COOKIE_SECURE = False
-    SESSION_COOKIE_SECURE = False
+    SESSION_COOKIE_HTTPONLY = True
+    CSRF_COOKIE_HTTPONLY = True
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
+    X_FRAME_OPTIONS = "DENY"
+    SECURE_HSTS_SECONDS = 3600 
+    SECURE_HSTS_PRELOAD = True
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_SSL_REDIRECT = True  # Set to True to enable SSL redirection
     SECURE_BROWSER_XSS_FILTER = False
     SECURE_CONTENT_TYPE_NOSNIFF = False
 
     # SSL certificates
-    SSL_CERTIFICATE_PATH = 'E:\\YMP\\env\\lib\\site-packages\\sslserver\\certs\\development.crt'
-    SSL_KEY_PATH = 'E:\\YMP\\env\\lib\\site-packages\\sslserver\\certs\\development.key'
+    SSL_CERTIFICATE_PATH = r'E:\YMP\Ymp2\example.com+5.pem'
+    SSL_KEY_PATH = r'E:\YMP\Ymp2\example.com+5-key.pem'
+
 
 
 #openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout localhost.key -out localhost.crt

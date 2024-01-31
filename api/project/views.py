@@ -118,6 +118,7 @@ class HoursViewSet(viewsets.ModelViewSet):
 class SignupView(APIView):
     permission_classes = [AllowAny]
     http_method_names = ['post']
+
     @csrf_exempt
     def post(self, request, *args, **kwargs):
         username = request.data.get('username')
@@ -132,23 +133,27 @@ class SignupView(APIView):
         elif User.objects.filter(email=email).exists():
             return Response({'error': 'Email already taken'}, status=status.HTTP_400_BAD_REQUEST)
         else:
-
             while True:
-                num=str(random.randint(1, 899999)+100000)
-                q=list(User.objects.filter(ymp_id=num))
+                num = str(random.randint(1, 899999) + 100000)
+                q = list(User.objects.filter(ymp_id=num))
                 print(len(q))
-                if len(q) ==0:
+                if len(q) == 0:
                     break
                 else:
                     continue
 
-            user = User.objects.create_user(username=username, email=email ,password=password,ymp_id=num)
-            send_mail("Welcome To YMP!", "Your YMP Id is: " + user.ymp_id, EMAIL_HOST_USER, [email], fail_silently=False)
-            #send_email(email,"Welcome to YMP", "Your YMP Id is: " + str(user.ymp_id))
-            token, created = Token.objects.get_or_create(user=user)
-            print(request.user.groups.all())
+            user = User.objects.create_user(username=username, email=email, password=password, ymp_id=num)
 
-            return Response({'User': username, 'Username': user.username, 'Id': user.ymp_id,'Groups':user.groups, 'token': token.key})
+            # Serialize user's groups
+            user_groups = [group.name for group in user.groups.all()]
+
+            send_mail("Welcome To YMP!", "Your YMP Id is: " + user.ymp_id, EMAIL_HOST_USER, [email], fail_silently=False)
+
+            # send_email(email, "Welcome to YMP", "Your YMP Id is: " + str(user.ymp_id))
+
+            token, created = Token.objects.get_or_create(user=user)
+
+            return Response({'User': username, 'Username': user.username, 'Id': user.ymp_id, 'Groups': user_groups, 'token': token.key})
 
 class LoginView(APIView):
     permission_classes = [AllowAny]

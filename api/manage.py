@@ -30,8 +30,8 @@ if __name__ == "__main__":
     use_ssl = os.environ.get("USE_SSL", "False").lower() == "true"
     if use_ssl:
         import ssl
-        ssl_certificate_path = "E:\\YMP\\env\\lib\\site-packages\\sslserver\\certs\\development.crt"
-        ssl_key_path = "E:\\YMP\\env\\lib\\site-packages\\sslserver\\certs\\development.key"
+        ssl_certificate_path= 'E:\YMP\Ymp2\example.com+5.pem'
+        ssl_key_path = 'E:\YMP\Ymp2\example.com+5-key.pem'
         ssl_ctx = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
         ssl_ctx.load_cert_chain(ssl_certificate_path, ssl_key_path)
         execute_from_command_line(["manage.py", "runsslserver", f"--cert={ssl_certificate_path}", f"--key={ssl_key_path}"])

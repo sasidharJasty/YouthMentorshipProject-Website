@@ -11878,7 +11878,7 @@ function Ht(e) {
   }, []);
   async function h() {
     try {
-      await Ee.post("http://127.0.0.1:8000/04D2430AAFE10AA4/logout/"),
+      await Ee.post("https://127.0.0.1:8000/04D2430AAFE10AA4/logout/"),
         o(!1),
         i(-999);
     } catch (w) {
@@ -12309,7 +12309,7 @@ function Hg() {
       f.preventDefault();
       try {
         const d = await Ee.post(
-          "http://127.0.0.1:8000/04D2430AAFE10AA4/login/",
+          "https://127.0.0.1:8000/04D2430AAFE10AA4/login/",
           { username: e, password: n }
         );
         a("/"), s(""), l(!1);
@@ -12459,7 +12459,7 @@ function Kg() {
       h.preventDefault();
       try {
         const w = await Ee.post(
-          "http://127.0.0.1:8000/04D2430AAFE10AA4/signup/",
+          "https://127.0.0.1:8000/04D2430AAFE10AA4/signup/",
           { email: o, username: e, password: n }
         );
         f("/"), f("/"), c(""), s(!1);
@@ -12611,7 +12611,7 @@ function Kg() {
 function _g() {
   const e = Kr();
   async function t() {
-    await Ee.post("http://127.0.0.1:8000/04D2430AAFE10AA4/logout/"),
+    await Ee.post("https://127.0.0.1:8000/04D2430AAFE10AA4/logout/"),
       localStorage.setItem(
         "Data",
         JSON.stringify({
@@ -16503,15 +16503,15 @@ function ax() {
   async function o() {
     try {
       const i = await Ee.get(
-          "http://127.0.0.1:8000/04D2430AAFE10AA4/group/Student/"
+          "https://127.0.0.1:8000/04D2430AAFE10AA4/group/Student/"
         ),
         s = await Ee.get(
-          "http://127.0.0.1:8000/04D2430AAFE10AA4/group/Mentors/"
+          "https://127.0.0.1:8000/04D2430AAFE10AA4/group/Mentors/"
         ),
         a = await Ee.get(
-          "http://127.0.0.1:8000/04D2430AAFE10AA4/group/Teamlead/"
+          "https://127.0.0.1:8000/04D2430AAFE10AA4/group/Teamlead/"
         ),
-        c = await Ee.get("http://127.0.0.1:8000/04D2430AAFE10AA4/group/Admin/");
+        c = await Ee.get("https://127.0.0.1:8000/04D2430AAFE10AA4/group/Admin/");
       r(s.data.count + a.data.count + c.data.count), t(i.data.count);
     } catch (i) {
       console.error("Error fetching data:", i);
@@ -16519,7 +16519,7 @@ function ax() {
   }
   const l = JSON.parse(
     localStorage.getItem("Data") ||
-      "{User:'Login',Username:'Login',Id:-999,Groups:'Students'}"
+      '{"User":"Login","Username":"Login","Id":-999,"Groups":"Students"}'
   );
   return (
     A.useEffect(() => {
@@ -17163,7 +17163,7 @@ const ux = () => {
   async function F() {
     try {
       const L = await Ee.get(
-        "http://127.0.0.1:8000/04D2430AAFE10AA4/Hours/?ymp_id=" + String(J.Id),
+        "https://127.0.0.1:8000/04D2430AAFE10AA4/Hours/?ymp_id=" + String(J.Id),
         { headers: { Authorization: `Token ${W}` } }
       );
       d(L.data.reverse());
@@ -17178,14 +17178,14 @@ const ux = () => {
     y(!0), L.preventDefault();
     try {
       const H = await Ee.get(
-          "http://127.0.0.1:8000/04D2430AAFE10AA4/users/?email=" + String(n),
+          "https://127.0.0.1:8000/04D2430AAFE10AA4/users/?email=" + String(n),
           { headers: { Authorization: `Token ${W}` } }
         ),
         ze = async (Fe) => {
           if (Fe.groups[0] === 1 || Fe.groups[0] === 3) {
             const Kt = new Date(i + "T00:00:00Z").toISOString().split("T")[0];
             await Ee.post(
-              "http://127.0.0.1:8000/04D2430AAFE10AA4/Hours/",
+              "https://127.0.0.1:8000/04D2430AAFE10AA4/Hours/",
               {
                 ymp_id: B.Id,
                 hours: e,
@@ -17572,14 +17572,14 @@ function fx() {
     [l, i] = A.useState(!1),
     s = JSON.parse(
       localStorage.getItem("Data") ||
-        "{User:'Login',Username:'Login',Id:-999,Groups:'Students'}"
+        '{"User":"Login","Username":"Login","Id":-999,"Groups":"Students"}'
     ),
     a = async (c) => {
       c.preventDefault(), i(!0);
       try {
         const d = (
           await Ee.post(
-            "http://127.0.0.1:8000/04D2430AAFE10AA4/password_reset/",
+            "https://127.0.0.1:8000/04D2430AAFE10AA4/password_reset/",
             { email: e }
           )
         ).data;
@@ -17650,7 +17650,7 @@ function px() {
       try {
         const g = (
           await Ee.post(
-            "http://127.0.0.1:8000/04D2430AAFE10AA4/password_reset/confirm/",
+            "https://127.0.0.1:8000/04D2430AAFE10AA4/password_reset/confirm/",
             { password: i, token: l }
           )
         ).data;
