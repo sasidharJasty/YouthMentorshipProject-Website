@@ -6,4 +6,8 @@ class ProjectConfig(AppConfig):
     name = 'project'
 
     def ready(self):
+<<<<<<< HEAD
         import project.signals  
+=======
+        import project.signals  
+>>>>>>> master

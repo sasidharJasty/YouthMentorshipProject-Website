@@ -13,7 +13,11 @@ th {
     margin-right: 1.5em;
 }
 
+<<<<<<< HEAD
 .viewlink, .addlink, .changelink {
+=======
+.viewlink, .addlink, .changelink, .hidelink {
+>>>>>>> master
     padding-left: 0;
     padding-right: 16px;
     background-position: 100% 1px;
@@ -107,6 +111,19 @@ thead th.sorted .text {
     border-left: none;
 }
 
+<<<<<<< HEAD
+=======
+.paginator .end {
+    margin-left: 6px;
+    margin-right: 0;
+}
+
+.paginator input {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+>>>>>>> master
 /* FORMS */
 
 .aligned label {
@@ -286,3 +303,10 @@ form .form-row p.datetime {
     margin-left: inherit;
     margin-right: 2px;
 }
+<<<<<<< HEAD
+=======
+
+.selector .selector-chooser {
+    margin: 0;
+}
+>>>>>>> master

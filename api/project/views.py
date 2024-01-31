@@ -176,4 +176,8 @@ def index(request):
 @api_view(['POST'])
 def logout_view(request):
     logout(request)
+<<<<<<< HEAD
     return JsonResponse({'message': 'Logout successful'})
+=======
+    return JsonResponse({'message': 'Logout successful'})
+>>>>>>> master

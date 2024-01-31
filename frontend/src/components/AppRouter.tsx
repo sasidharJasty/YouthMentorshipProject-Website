@@ -6,6 +6,11 @@ import Home from "./homePage";
 import Hours from "./hours";
 import Page_Not_Found from "./Page_Not_Found";
 import UnAuthorized from "./UnAuthorized";
+<<<<<<< HEAD
+=======
+import Forgot from "./forgot";
+import Reset from "./reset";
+>>>>>>> master
 const AppRouter = () => {
   return (
     <Router>
@@ -15,6 +20,11 @@ const AppRouter = () => {
         <Route path="/logout" element={<Logout />} />
         <Route path="/" element={<Home />} />
         <Route path="/hours" element={<Hours />} />
+<<<<<<< HEAD
+=======
+        <Route path="/forgot-password" element={<Forgot />} />
+        <Route path="/reset-password" element={<Reset />} />
+>>>>>>> master
         <Route path="*" element={<Page_Not_Found />} />
         <Route path="/UnAuth" element={<UnAuthorized />} />
       </Routes>

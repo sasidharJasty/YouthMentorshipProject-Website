@@ -97,13 +97,29 @@ function Login() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
+<<<<<<< HEAD
             <p className="Redirect-txt">
+=======
+            <div className="">
+            <p className="Redirect-txt ">
+>>>>>>> master
               {" "}
               Don't have an account?{" "}
               <a className="text-blue-500" href="/signup/">
                 Sign Up!
               </a>
             </p>
+<<<<<<< HEAD
+=======
+            <p className="Redirect-txt mb-20">
+              {" "}
+              {" "}
+              <a className="text-blue-500" href="/forgot-password/">
+                Forgot Password?
+              </a>
+            </p>
+            </div>
+>>>>>>> master
             <button
               className=" Redirect-txt-btn bg-blue-400  mt-3 rounded-md shadow-2xl text-black"
               type="submit"

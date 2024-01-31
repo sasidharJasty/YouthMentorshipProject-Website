@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_rest_passwordreset',
     "api",
+<<<<<<< HEAD
     'project.apps.ProjectConfig'
 ]
 
@@ -71,6 +72,12 @@ REST_FRAMEWORK = {
     # ...
 }
 
+=======
+    'project.apps.ProjectConfig',
+    'sslserver'
+]
+
+>>>>>>> master
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -79,7 +86,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+<<<<<<< HEAD
     'corsheaders.middleware.CorsMiddleware',
+=======
+    'corsheaders.middleware.CorsMiddleware',   
+    #'sslserver.middleware.SSLRedirectMiddleware',
+>>>>>>> master
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -166,5 +178,25 @@ EMAIL_HOST_USER = 'noreply@youthmentorshipproject.org'
 EMAIL_HOST_PASSWORD = 'nkuqihegijpcjmlk'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+<<<<<<< HEAD
 
 CORS_ORIGIN_ALLOW_ALL = True
+=======
+DJANGO_LOG_LEVEL=DEBUG
+CORS_ORIGIN_ALLOW_ALL = True
+
+if DEBUG:
+    # Development server settings
+    SECURE_SSL_REDIRECT = False  # Set to True to enable SSL redirection
+    CSRF_COOKIE_SECURE = False
+    SESSION_COOKIE_SECURE = False
+    SECURE_BROWSER_XSS_FILTER = False
+    SECURE_CONTENT_TYPE_NOSNIFF = False
+
+    # SSL certificates
+    SSL_CERTIFICATE_PATH = 'E:\\YMP\\env\\lib\\site-packages\\sslserver\\certs\\development.crt'
+    SSL_KEY_PATH = 'E:\\YMP\\env\\lib\\site-packages\\sslserver\\certs\\development.key'
+
+
+#openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout localhost.key -out localhost.crt
+>>>>>>> master

@@ -32,4 +32,8 @@ class ChangePasswordSerializer(serializers.Serializer):
     new_password = serializers.CharField(required=True)
 
 class ResetPasswordEmailSerializer(serializers.Serializer):
+<<<<<<< HEAD
     email = serializers.EmailField(required=True)
+=======
+    email = serializers.EmailField(required=True)
+>>>>>>> master

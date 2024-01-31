@@ -1,6 +1,7 @@
 /* SELECTOR (FILTER INTERFACE) */
 
 .selector {
+<<<<<<< HEAD
     width: 800px;
     float: left;
     display: flex;
@@ -18,6 +19,25 @@
     margin-bottom: 5px;
     display: flex;
     flex-direction: column;
+=======
+    display: flex;
+    flex-grow: 1;
+    gap: 0 10px;
+}
+
+.selector select {
+    height: 17.2em;
+    flex: 1 0 auto;
+    overflow: scroll;
+    width: 100%;
+}
+
+.selector-available, .selector-chosen {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+>>>>>>> master
 }
 
 .selector-available h2, .selector-chosen h2 {
@@ -41,7 +61,11 @@
 }
 
 .selector-chosen h2 {
+<<<<<<< HEAD
     background: var(--primary);
+=======
+    background: var(--secondary);
+>>>>>>> master
     color: var(--header-link-color);
 }
 
@@ -58,6 +82,10 @@
     font-size: 0.625rem;
     margin: 0;
     text-align: left;
+<<<<<<< HEAD
+=======
+    display: flex;
+>>>>>>> master
 }
 
 .selector .selector-filter label,
@@ -69,11 +97,22 @@
     padding: 0;
     overflow: hidden;
     line-height: 1;
+<<<<<<< HEAD
+=======
+    min-width: auto;
+}
+
+.selector-filter input {
+    flex-grow: 1;
+>>>>>>> master
 }
 
 .selector .selector-available input,
 .selector .selector-chosen input {
+<<<<<<< HEAD
     width: 320px;
+=======
+>>>>>>> master
     margin-left: 8px;
 }
 
@@ -82,7 +121,11 @@
     width: 22px;
     background-color: var(--selected-bg);
     border-radius: 10px;
+<<<<<<< HEAD
     margin: 0 5px;
+=======
+    margin: 0;
+>>>>>>> master
     padding: 0;
     transform: translateY(-17px);
 }
@@ -146,7 +189,11 @@ a.selector-chooseall, a.selector-clearall {
     display: inline-block;
     height: 16px;
     text-align: left;
+<<<<<<< HEAD
     margin: 1px auto 3px;
+=======
+    margin: 0 auto;
+>>>>>>> master
     overflow: hidden;
     font-weight: bold;
     line-height: 16px;
@@ -446,7 +493,11 @@ span.clearable-file-input label {
 }
 
 .calendar td.selected a {
+<<<<<<< HEAD
     background: var(--primary);
+=======
+    background: var(--secondary);
+>>>>>>> master
     color: var(--button-fg);
 }
 
@@ -533,6 +584,7 @@ span.clearable-file-input label {
     margin: 0;
     padding: 4px 0;
     font-size: 0.75rem;
+<<<<<<< HEAD
     background: #eee;
     border-top: 1px solid var(--border-color);
     color: var(--body-fg);
@@ -544,6 +596,19 @@ span.clearable-file-input label {
 
 .calendar-cancel a {
     color: black;
+=======
+    background: var(--close-button-bg);
+    border-top: 1px solid var(--border-color);
+    color: var(--button-fg);
+}
+
+.calendar-cancel:focus, .calendar-cancel:hover {
+    background: var(--close-button-hover-bg);
+}
+
+.calendar-cancel a {
+    color: var(--button-fg);
+>>>>>>> master
     display: block;
 }
 
@@ -574,6 +639,7 @@ ul.timelist, .timelist li {
 
 /* RELATED WIDGET WRAPPER */
 .related-widget-wrapper {
+<<<<<<< HEAD
     float: left;       /* display properly in form rows with multiple fields */
     overflow: hidden;  /* clear floated contents */
 }
@@ -594,6 +660,23 @@ ul.timelist, .timelist li {
 select + .related-widget-wrapper-link,
 .related-widget-wrapper-link + .related-widget-wrapper-link {
     margin-left: 7px;
+=======
+    display: flex;
+    gap: 0 10px;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+}
+
+.related-widget-wrapper-link {
+    opacity: .6;
+    filter: grayscale(1);
+}
+
+.related-widget-wrapper-link:link {
+    opacity: 1;
+    filter: grayscale(0);
+>>>>>>> master
 }
 
 /* GIS MAPS */

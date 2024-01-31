@@ -29,8 +29,13 @@ def password_reset_token_created(sender, instance, reset_password_token, *args, 
     }
 
     # render email text
+<<<<<<< HEAD
     email_plaintext_message = "Hello "+reset_password_token.user.username+", \nWe've received a request to reset your password. \nPlease click on the link below to reset your password:" + "{}?token={}".format(
             instance.request.build_absolute_uri(reverse('password_reset:reset-password-confirm')),
+=======
+    email_plaintext_message = "Hello "+reset_password_token.user.username+", \n\nWe've received a request to reset your password. \nIf this request was not made by you then do not click on the link. \nPlease click on the link to reset your password:" + "{}/reset-password/?token={} \n\nYouth Mentorship Project".format(
+            instance.request.META["HTTP_HOST"],
+>>>>>>> master
             reset_password_token.key) + ""
 
     msg = EmailMultiAlternatives(
@@ -43,4 +48,8 @@ def password_reset_token_created(sender, instance, reset_password_token, *args, 
         # to:
         [reset_password_token.user.email]
     )
+<<<<<<< HEAD
     msg.send()
+=======
+    msg.send()
+>>>>>>> master

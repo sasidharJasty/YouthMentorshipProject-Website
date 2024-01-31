@@ -108,6 +108,7 @@ function Signup() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
+<<<<<<< HEAD
             <p className="Redirect-txt">
               {" "}
               Have an account?{" "}
@@ -115,6 +116,24 @@ function Signup() {
                 Login!
               </a>
             </p>
+=======
+            <div className="">
+            <p className="Redirect-txt ">
+              {" "}
+              Have an account?{" "}
+              <a className="text-blue-500" href="/login/">
+                Login!
+              </a>
+            </p>
+            <p className="Redirect-txt mb-20">
+              {" "}
+              {" "}
+              <a className="text-blue-500" href="/forgot-password/">
+                Forgot Password?
+              </a>
+            </p>
+            </div>
+>>>>>>> master
             <button
               className="bg-blue-400 Redirect-txt-btn rounded-md shadow-2xl text-black"
               type="submit"

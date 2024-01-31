@@ -122,6 +122,7 @@ html[data-theme="dark"] .theme-toggle svg.theme-icon-when-dark {
 html[data-theme="light"] .theme-toggle svg.theme-icon-when-light {
     display: block;
 }
+<<<<<<< HEAD
 
 .visually-hidden {
     position: absolute;
@@ -135,3 +136,5 @@ html[data-theme="light"] .theme-toggle svg.theme-icon-when-light {
     color: var(--body-fg);
     background-color: var(--body-bg);
 }
+=======
+>>>>>>> master

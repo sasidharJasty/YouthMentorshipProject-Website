@@ -43,7 +43,11 @@ input[type="submit"], button {
         justify-content: flex-start;
     }
 
+<<<<<<< HEAD
     #branding h1 {
+=======
+    #site-name {
+>>>>>>> master
         margin: 0 0 8px;
         line-height: 1.2;
     }
@@ -237,6 +241,7 @@ input[type="submit"], button {
         padding: 7px;
     }
 
+<<<<<<< HEAD
     /* Related widget */
 
     .related-widget-wrapper {
@@ -253,6 +258,8 @@ input[type="submit"], button {
         margin-left: 10px;
     }
 
+=======
+>>>>>>> master
     /* Selector */
 
     .selector {
@@ -270,7 +277,11 @@ input[type="submit"], button {
     }
 
     .selector .selector-filter input {
+<<<<<<< HEAD
         width: auto;
+=======
+        width: 100%;
+>>>>>>> master
         min-height: 0;
         flex: 1 1;
     }
@@ -292,7 +303,10 @@ input[type="submit"], button {
         width: 26px;
         height: 52px;
         padding: 2px 0;
+<<<<<<< HEAD
         margin: auto 15px;
+=======
+>>>>>>> master
         border-radius: 20px;
         transform: translateY(-10px);
     }
@@ -336,7 +350,10 @@ input[type="submit"], button {
         width: 52px;
         height: 26px;
         padding: 0 2px;
+<<<<<<< HEAD
         margin: 15px auto;
+=======
+>>>>>>> master
         transform: none;
     }
 
@@ -432,7 +449,11 @@ input[type="submit"], button {
         padding: 15px 20px;
     }
 
+<<<<<<< HEAD
     .login #branding h1 {
+=======
+    .login #site-name {
+>>>>>>> master
         margin: 0;
     }
 
@@ -565,6 +586,13 @@ input[type="submit"], button {
         flex-flow: column;
     }
 
+<<<<<<< HEAD
+=======
+    .flex-container.checkbox-row {
+        flex-flow: row;
+    }
+
+>>>>>>> master
     textarea {
         max-width: none;
     }
@@ -584,6 +612,10 @@ input[type="submit"], button {
 
     .aligned label {
         width: 100%;
+<<<<<<< HEAD
+=======
+        min-width: auto;
+>>>>>>> master
         padding: 0 0 10px;
     }
 
@@ -598,10 +630,13 @@ input[type="submit"], button {
         max-width: 100%;
     }
 
+<<<<<<< HEAD
     .aligned .checkbox-row {
         align-items: center;
     }
 
+=======
+>>>>>>> master
     .aligned .checkbox-row input {
         flex: 0 1 auto;
         margin: 0;
@@ -683,15 +718,19 @@ input[type="submit"], button {
         align-self: center;
     }
 
+<<<<<<< HEAD
     select + .related-widget-wrapper-link,
     .related-widget-wrapper-link + .related-widget-wrapper-link {
         margin-left: 15px;
     }
 
+=======
+>>>>>>> master
     /* Selector */
 
     .selector {
         flex-direction: column;
+<<<<<<< HEAD
     }
 
     .selector > * {
@@ -700,6 +739,12 @@ input[type="submit"], button {
 
     .selector-available, .selector-chosen {
         margin-bottom: 0;
+=======
+        gap: 10px 0;
+    }
+
+    .selector-available, .selector-chosen {
+>>>>>>> master
         flex: 1 1 auto;
     }
 
@@ -709,11 +754,17 @@ input[type="submit"], button {
 
     .selector ul.selector-chooser {
         display: block;
+<<<<<<< HEAD
         float: none;
         width: 52px;
         height: 26px;
         padding: 0 2px;
         margin: 15px auto 20px;
+=======
+        width: 52px;
+        height: 26px;
+        padding: 0 2px;
+>>>>>>> master
         transform: none;
     }
 
