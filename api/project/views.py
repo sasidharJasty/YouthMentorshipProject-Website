@@ -174,9 +174,12 @@ class LoginView(APIView):
             return Response({'User': username, 'Username': user.username, 'Id': user.ymp_id,'Groups': [group.name for group in user.groups.all()], 'token': token.key})
         else:
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+    
+def soon(request):
+    return render(request, "soon.html")
 
-def index(request):
-    return render(request, "dist/index.html")
+def pagenotfound(request):
+    return render(request, "pagenotfound.html")
 
 @api_view(['POST'])
 def logout_view(request):

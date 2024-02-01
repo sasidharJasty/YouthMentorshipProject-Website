@@ -29,7 +29,7 @@ def password_reset_token_created(sender, instance, reset_password_token, *args, 
     }
 
     # render email text
-    email_plaintext_message = "Hello "+reset_password_token.user.username+", \n\nWe have received a request to reset your password. \nIf this request was not made by you, you can safely ignore this email. \nOtherwise, please click on the link to reset your password:" + "{}/reset-password/?token={} \n\nThanks,\nYouth Mentorship Project".format(
+    email_plaintext_message = "Hello "+reset_password_token.user.username+", \n\nWe have received a request to reset your password. \nIf this request was not made by you, you can safely ignore this email. \nOtherwise, please click on the link to reset your password:" + "https://{}/reset-password/?token={} \n\nThanks,\nYouth Mentorship Project".format(
             instance.request.META["HTTP_HOST"],
             reset_password_token.key) + ""
 
