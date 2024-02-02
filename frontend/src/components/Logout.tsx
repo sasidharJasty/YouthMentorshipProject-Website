@@ -1,17 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
-/*<Nav
-      Username={{
-        User: props.Username["User"],
-        Username: props.Username["Username"],
-        Id: props.Username["Id"],
-      }}
-    />*/
 export default function Logout() {
   const history = useNavigate();
   async function logout() {
-    await axios.post("http://127.0.0.1:8000/04D2430AAFE10AA4/logout/");
+    await axios.post("https://127.0.0.1:8000/04D2430AAFE10AA4/logout/");
     localStorage.setItem(
       "Data",
       JSON.stringify({

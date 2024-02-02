@@ -8,6 +8,7 @@ import Page_Not_Found from "./Page_Not_Found";
 import UnAuthorized from "./UnAuthorized";
 import Forgot from "./forgot";
 import Reset from "./reset";
+import Soon from "./soon";
 const AppRouter = () => {
   return (
     <Router>
@@ -16,6 +17,7 @@ const AppRouter = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/" element={<Home />} />
+        <Route path="/soon" element={<Soon />} />
         <Route path="/hours" element={<Hours />} />
         <Route path="/forgot-password" element={<Forgot />} />
         <Route path="/reset-password" element={<Reset />} />

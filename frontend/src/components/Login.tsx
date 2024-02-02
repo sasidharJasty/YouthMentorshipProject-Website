@@ -10,14 +10,13 @@ function Login() {
   const [password, setPassword] = useState("");
   const [lgf, setlgf] = useState(false);
   const [err, seterr] = useState("");
-
   const history = useNavigate();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/04D2430AAFE10AA4/login/", {
+      const response = await axios.post("https://127.0.0.1:8000/04D2430AAFE10AA4/login/", {
         username: username,
         password: password,
       });
@@ -27,12 +26,10 @@ function Login() {
       setlgf(false);
       const token = response.data.token;
 
-      // Store the token in local storage (you might want to use more secure storage)
       axios.defaults.headers.common["Authorization"] = `Token ${token}`;
       localStorage.setItem("token", JSON.stringify(token));
       localStorage.setItem("Data", JSON.stringify(response.data));
     } catch (error: any) {
-      //console.error("login failed:", error.response.data["error"]);
       seterr(error.response.data["error"]);
       setlgf(true);
     }
@@ -47,23 +44,24 @@ function Login() {
           Id: -999,
         }}
       />
-      <div className="w-full h-full   grid grid-cols-2 text-black">
-        <div className="justify-center content-center text-center  ">
+      <div className="w-full h-full grid grid-cols-2 text-black">
+        <div className="justify-center content-center text-center">
           <img
             width="auto"
             height="100%"
             className="Login-img"
             src={login}
+            alt="Login"
           ></img>
         </div>
 
-        <div className=" justify-center content-center text-center flex items-center ">
+        <div className="justify-center content-center text-center flex items-center">
           <form className="mb-10 w-full" onSubmit={handleLogin}>
             <div>
-              <div className="justify-center content-center text-center  ">
-                <h1 className="font-extrabold logo mb-10 ">YMP</h1>
+              <div className="justify-center content-center text-center">
+                <h1 className="font-extrabold logo mb-10">YMP</h1>
               </div>
-              <h1 className=" Login-Title mb-5 font-black">Login</h1>
+              <h1 className="Login-Title mb-5 font-black">Login</h1>
               <p className="text-gray-400 info-ft mb-10">
                 Login into YMP with your information
               </p>
@@ -71,7 +69,7 @@ function Login() {
                 <p className="text-red-600 info-ft font-bold mb-2">{err}</p>
               ) : null}
 
-              <div className="mb-3  w-full ">
+              <div className="mb-3 w-full">
                 <p className="w-1/2 ml-6 mb-1 text-gray-700 info-ft font-semibold">
                   Email
                 </p>
@@ -80,6 +78,7 @@ function Login() {
                   type="email"
                   placeholder="Enter your Email"
                   value={username}
+                  autoComplete="email"
                   onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
@@ -93,28 +92,29 @@ function Login() {
                 className="mb-3 rounded-md py-2 w-1/2 pl-3 boo info-ft"
                 type="password"
                 placeholder="Enter your Password"
+                autoComplete="current-password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div className="">
-            <p className="Redirect-txt ">
-              {" "}
-              Don't have an account?{" "}
-              <a className="text-blue-500" href="/signup/">
-                Sign Up!
-              </a>
-            </p>
-            <p className="Redirect-txt mb-20">
-              {" "}
-              {" "}
-              <a className="text-blue-500" href="/forgot-password/">
-                Forgot Password?
-              </a>
-            </p>
+              <p className="Redirect-txt">
+                {" "}
+                Don't have an account?{" "}
+                <a className="text-blue-500" href="/signup/">
+                  Sign Up!
+                </a>
+              </p>
+              <p className="Redirect-txt mb-20">
+                {" "}
+                {" "}
+                <a className="text-blue-500" href="/forgot-password/">
+                  Forgot Password?
+                </a>
+              </p>
             </div>
             <button
-              className=" Redirect-txt-btn bg-blue-400  mt-3 rounded-md shadow-2xl text-black"
+              className="Redirect-txt-btn bg-blue-400 mt-3 rounded-md shadow-2xl text-black"
               type="submit"
             >
               Login

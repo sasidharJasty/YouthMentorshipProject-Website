@@ -2,8 +2,8 @@ import ResponsiveAppBar from "./Nav2";
 import "./Page_Not_Found.css";
 
 export default function UnAuthorized() {
-  const usrData = JSON.parse(
-    localStorage.getItem("Data") || "{User:'Login',Username:'Login',Id:-999,Groups:'Students'}"
+  const {usrData} = JSON.parse(
+    localStorage.getItem("Data") || '{"User":"Login","Username":"Login","Id":-999,"Groups":"Students"}'
   );
   return (
     <div className="w-screen h-screen">
@@ -12,13 +12,11 @@ export default function UnAuthorized() {
           <h1 className="">403</h1>
         </div>
         <div className="z-20 relative w-screen txt-lg">
-          {" "}
           <h1>
             You don't have permission
             <br /> to access this page
           </h1>
           <a className="btn" href="/">
-            {" "}
             Return Home
           </a>
         </div>

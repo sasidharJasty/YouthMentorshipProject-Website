@@ -37,16 +37,16 @@ export default function Home() {
   async function ren() {
     try {
       const Student = await axios.get(
-        "http://127.0.0.1:8000/04D2430AAFE10AA4/group/Student/",
+        "https://127.0.0.1:8000/04D2430AAFE10AA4/group/Student/",
       );
       const Mentor = await axios.get(
-        "http://127.0.0.1:8000/04D2430AAFE10AA4/group/Mentors/",
+        "https://127.0.0.1:8000/04D2430AAFE10AA4/group/Mentors/",
       );
       const Teamlead = await axios.get(
-        "http://127.0.0.1:8000/04D2430AAFE10AA4/group/Teamlead/",
+        "https://127.0.0.1:8000/04D2430AAFE10AA4/group/Teamlead/",
       );
       const Admin = await axios.get(
-        "http://127.0.0.1:8000/04D2430AAFE10AA4/group/Admin/",
+        "https://127.0.0.1:8000/04D2430AAFE10AA4/group/Admin/",
       );
       setMentors(Mentor.data["count"]+Teamlead.data["count"]+Admin.data["count"]);
 
@@ -56,7 +56,7 @@ export default function Home() {
       console.error("Error fetching data:", error);
     }
   }
-  const val = JSON.parse(localStorage.getItem("Data") || "{User:'Login',Username:'Login',Id:-999,Groups:'Students'}");
+  const val = JSON.parse(localStorage.getItem("Data") || '{"User":"Login","Username":"Login","Id":-999,"Groups":"Students"}');
   useEffect(()=>{ren()},[])
   return (
     <div className="main-display">

@@ -7,7 +7,7 @@ export default function Forgot(){
     const [, setResponseData] = useState<any | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [buttonClicked, setButtonClicked] = useState(false);
-    const usrData = JSON.parse(localStorage.getItem("Data") ||"{User:'Login',Username:'Login',Id:-999,Groups:'Students'}");
+    const usrData = JSON.parse(localStorage.getItem("Data") ||'{"User":"Login","Username":"Login","Id":-999,"Groups":"Students"}');
     const handleForgot = async (e: React.FormEvent) => {
         e.preventDefault();
     
@@ -15,7 +15,7 @@ export default function Forgot(){
     
         try {
           const response = await axios.post(
-            "http://127.0.0.1:8000/04D2430AAFE10AA4/password_reset/",
+            "https://127.0.0.1:8000/04D2430AAFE10AA4/password_reset/",
             {
               email: email,
             }

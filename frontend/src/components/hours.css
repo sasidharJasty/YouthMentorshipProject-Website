@@ -1,7 +1,7 @@
 .Past-Hours {
   width: 95%;
   padding-right: 0%;
-  height: 70vh;
+  height: 65vh;
   overflow-y: scroll;
   border-color: black;
   border-radius: 3px;
@@ -33,16 +33,23 @@
 
 .popup-content button {
   /* Add your styles for the popup content */
-  background-color:rgba(106, 76, 227, 1);
-  color:white;
-  padding:1vh;  
+  background-color: rgba(106, 76, 227, 1);
+  color: white;
+  padding: 1vh;
   border-radius: 7px;
 }
 
-.denied-class {background-color: lightcoral;}
+.denied-class {
+  background-color: lightcoral;
+}
 
-.pending-class {background-color: rgba(106, 76, 227, 1);}
-.pending-txt {color:rgba(106, 76, 227, 1);}
+.pending-class {
+  background-color: rgba(106, 76, 227, 1);
+}
+.pending-txt {
+  color: rgba(106, 76, 227, 1);
+}
 
-.approved-class {background-color: lime;}
-
+.approved-class {
+  background-color: lime;
+}

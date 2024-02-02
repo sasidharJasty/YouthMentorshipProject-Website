@@ -162,6 +162,18 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 DJANGO_LOG_LEVEL=DEBUG
 CORS_ORIGIN_ALLOW_ALL = True
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Path to the directory containing the private key and certificate
+CERTS_DIR = os.path.join(BASE_DIR, 'certs')
+
+# Paths to the private key and certificate
+PRIVATE_KEY_PATH = os.path.join(CERTS_DIR, 'myCA.key')
+CERTIFICATE_PATH = os.path.join(CERTS_DIR, 'myCA.pem')
+
+# SSL settings
+SECURE_SSL_KEY = PRIVATE_KEY_PATH
+SECURE_SSL_CERT = CERTIFICATE_PATH
 #SECURE_SSL_REDIRECT = True
 
 
@@ -182,8 +194,6 @@ if DEBUG:
     SECURE_CONTENT_TYPE_NOSNIFF = False
 
     # SSL certificates
-    SSL_CERTIFICATE_PATH = r'E:\YMP\Ymp2\example.com+5.pem'
-    SSL_KEY_PATH = r'E:\YMP\Ymp2\example.com+5-key.pem'
 
 
 

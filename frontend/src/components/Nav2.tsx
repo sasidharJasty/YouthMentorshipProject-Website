@@ -2,11 +2,8 @@ import { useState, useEffect } from "react";
 import "./homePage.css";
 import axios from "axios";
 import "./Nav2.css";
-import tik from "../../public/socials/s-tik.png";
 import linkedin from "../../public/socials/s-linkedin.png";
 import insta from "../../public/socials/s-insta.png";
-import facebook from "../../public/socials/s-face.png";
-import youtube from "../../public/socials/s-youtube.png";
 import discord from "../../public/socials/s-discord.png";
 import Logo from "../../public/Logo.png";
 import { useNavigate } from "react-router-dom";
@@ -44,7 +41,7 @@ function ResponsiveAppBar(props: Prop) {
   }, []);
   async function logout() {
     try {
-      await axios.post("http://127.0.0.1:8000/04D2430AAFE10AA4/logout/");
+      await axios.post("https://127.0.0.1:8000/04D2430AAFE10AA4/logout/");
       setSelect(false);
       setuser(-999);
     } catch (error: any) {
@@ -90,15 +87,7 @@ function ResponsiveAppBar(props: Prop) {
           </span>
         </a>
         <div className="items-center md:order-2 space-x-3  rtl:space-x-reverse mr-40">
-          <ul className="flex ">
-            <li className="Link">
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/company/youth-mentorship-proj/"
-              >
-                <img src={tik} className="nsocials"></img>
-              </a>
-            </li>
+          <ul className="flex ml-20 ">
             <li className="Link">
               <a
                 target="_blank"
@@ -115,22 +104,7 @@ function ResponsiveAppBar(props: Prop) {
                 <img src={insta} className=" nsocials"></img>
               </a>
             </li>
-            <li className="Link">
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/company/youth-mentorship-proj/"
-              >
-                <img src={facebook} className="  nsocials"></img>
-              </a>
-            </li>
-            <li className="Link">
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/company/youth-mentorship-proj/"
-              >
-                <img src={youtube} className=" nsocials"></img>
-              </a>
-            </li>
+
             <li className="Link">
               <a target="_blank" href="https://discord.gg/mCWDhdtmdS">
                 <img src={discord} className=" nsocials"></img>
@@ -270,7 +244,7 @@ function ResponsiveAppBar(props: Prop) {
             </li>
             <li>
               <a
-                href="#"
+                href="/soon/"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 About
@@ -278,7 +252,7 @@ function ResponsiveAppBar(props: Prop) {
             </li>
             <li>
               <a
-                href="#"
+                href="/soon/"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Programs
@@ -286,7 +260,7 @@ function ResponsiveAppBar(props: Prop) {
             </li>
             <li>
               <a
-                href="#"
+                href="/soon/"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Membership
@@ -294,7 +268,7 @@ function ResponsiveAppBar(props: Prop) {
             </li>
             <li>
               <a
-                href="#"
+                href="/soon/"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Events
@@ -302,7 +276,7 @@ function ResponsiveAppBar(props: Prop) {
             </li>
             <li>
               <a
-                href="#"
+                href="/soon/"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Partnership
@@ -326,7 +300,7 @@ function ResponsiveAppBar(props: Prop) {
               <br />
 
               <div className="grid grid-cols-3 gap-4 text-left w-full h-full">
-                <div className="w-full h-full CONTENT">IMGAGES GO HERE</div>
+                <div className="w-full h-full CONTENT"></div>
 
 
               <div className="col-span-2 grid grid-cols-2 w-full gap-x-20 gap-y-10">

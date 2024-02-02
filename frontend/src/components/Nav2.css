@@ -1,29 +1,26 @@
-.Logo-txt {
-  font-size: 5vh;
-}
 .Logo-sd {
-  font-size: 1.5vh;
+  font-size: 15px;
 }
 .Nav-txt {
   font-size: 2vh;
 }
 .btn-txt {
-  font-size: 2vh;
+  font-size: 17px;
 }
 .NAV-Logo {
-  width: 8vw;
+  max-width: 8vw;
   height: auto;
 }
 .NAV-socials {
-  min-width: 1.5vw;
+  min-width: 15px;
   margin-left: 1vw;
-  margin-top: 1vh;
+  margin-top: 10px;
   height: auto;
   filter: invert(100%) sepia(1%) saturate(2%) hue-rotate(342deg)
     brightness(115%) contrast(101%);
 }
 .nsocials {
-  min-width: 1.5vw;
+  min-width: 30px;
   margin-left: 1vw;
   margin-top: 1vh;
   height: auto;
@@ -32,5 +29,5 @@
   max-width: 10vw;
 }
 .CONTENT {
-  background-image: linear-gradient( to bottom right,#6D2793 ,#AF91E8);
+  background-image: linear-gradient(to bottom right, #6d2793, #af91e8);
 }

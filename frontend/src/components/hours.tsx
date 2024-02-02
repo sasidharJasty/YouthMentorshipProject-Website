@@ -32,7 +32,7 @@ const Hours = () => {
   const [appHRS, setappHRS] = useState(0);
   const [err, seterr] = useState("");
   const [selectedItem, setSelectedItem] = useState<HourItem | null>(null);
-  const usrData = JSON.parse(localStorage.getItem("Data") ||"{User:'Login',Username:'Login',Id:-999,Groups:'Students'}");
+  const usrData = JSON.parse(localStorage.getItem("Data") ||'{"User":"Login","Username":"Login","Id":-999,"Groups":"Students"}');
   const history = useNavigate();
   if(usrData["Id"] === -999){
     history("/");
@@ -64,10 +64,11 @@ const Hours = () => {
         setappHRS((prev) => prev + item.hours);
       }
     };
-
+  
     // Call updateHours for each item in resp when resp changes
     (resp || []).forEach(updateHours);
   }, [resp]);
+  
 
   const DateConverter: React.FC<{ dateString: string }> = ({ dateString }) => {
     const dateObjectUTC = new Date(`${dateString}T24:00:00Z`);
@@ -125,7 +126,7 @@ const Hours = () => {
   async function ren() {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8000/04D2430AAFE10AA4/Hours/?ymp_id=" + String(val["Id"]),
+        "https://127.0.0.1:8000/04D2430AAFE10AA4/Hours/?ymp_id=" + String(val["Id"]),
         {
           headers: {
             Authorization: `Token ${token}`,
@@ -155,7 +156,7 @@ const Hours = () => {
 
     try {
       const usrslst = await axios.get(
-        "http://127.0.0.1:8000/04D2430AAFE10AA4/users/?email=" + String(TeamLead),
+        "https://127.0.0.1:8000/04D2430AAFE10AA4/users/?email=" + String(TeamLead),
         {
           headers: {
             Authorization: `Token ${token}`,
@@ -169,7 +170,7 @@ const Hours = () => {
             .toISOString()
             .split("T")[0];
         await axios.post(
-            "http://127.0.0.1:8000/04D2430AAFE10AA4/Hours/",
+            "https://127.0.0.1:8000/04D2430AAFE10AA4/Hours/",
             {
               ymp_id: usrData["Id"],
               hours: Hours,
@@ -189,8 +190,10 @@ const Hours = () => {
           setDescription("");
           setdate("");
           setnxtweek("");
+          
 
           ren();
+          
         } else {
           alert("Please enter a Real Team Lead Email");
         }
@@ -206,9 +209,13 @@ const Hours = () => {
       } else {
         alert("No User with that email is Found");
       }
-      setButtonClicked(false);
+      
     } catch (error: any) {
       console.error("Signup failed:", error.response.data);
+    }
+    if(TeamLead === ""){
+      setButtonClicked(false);
+      history("/hours");
     }
   };
 
@@ -223,10 +230,10 @@ const Hours = () => {
               Id: usrData["Id"],
             }}
           />
-          <div className="w-full h-auto rounded-lg mx-5 my-12 grid grid-cols-2 text-black">
+          <div className="w-full h-auto rounded-lg mx-5 my-12 grid grid-cols-2 mt-20 text-black">
             <div className="">
               <div className="flex">
-              <div className="justify-center content-center text-center">
+              <div className="justify-center content-center text-center ml-10 ">
                 <h1 className="text-3xl font-black  mt-11">
                   {usrData["Username"]}
                 </h1>
@@ -261,7 +268,7 @@ const Hours = () => {
               </div>
             </div>
             <form
-              className="mb-10 w-full mt-7 text-center mr-14"
+              className=" w-full mt-7 text-center mr-14"
               onSubmit={handleHours}
             >
               <div>
