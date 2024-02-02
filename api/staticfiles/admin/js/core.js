@@ -86,6 +86,7 @@ function findPosY(obj) {
     };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     Date.prototype.getAbbrevDayName = function() {
         return typeof window.CalendarNamespace === "undefined"
@@ -100,6 +101,8 @@ function findPosY(obj) {
     };
 
 >>>>>>> master
+=======
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
     Date.prototype.getAbbrevMonthName = function() {
         return typeof window.CalendarNamespace === "undefined"
             ? this.getTwoDigitMonth()
@@ -115,10 +118,13 @@ function findPosY(obj) {
     Date.prototype.strftime = function(format) {
         const fields = {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             a: this.getAbbrevDayName(),
             A: this.getFullDayName(),
 >>>>>>> master
+=======
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
             b: this.getAbbrevMonthName(),
             B: this.getFullMonthName(),
             c: this.toString(),

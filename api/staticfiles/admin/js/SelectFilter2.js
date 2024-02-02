@@ -31,11 +31,14 @@ Requires core.js and SelectBox.js.
             // <div class="selector"> or <div class="selector stacked">
             const selector_div = quickElement('div', from_box.parentNode);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             // Make sure the selector div is at the beginning so that the
             // add link would be displayed to the right of the widget.
             from_box.parentNode.prepend(selector_div);
 >>>>>>> master
+=======
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
             selector_div.className = is_stacked ? 'selector stacked' : 'selector';
 
             // <div class="selector-available">

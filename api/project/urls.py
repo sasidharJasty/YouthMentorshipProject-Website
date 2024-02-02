@@ -14,24 +14,35 @@ router.register(r'roles', views.RoleViewSet)
 router.register(r'logs', views.LogsViewSet)
 router.register(r'Hours', views.HoursViewSet)
 
+
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('04D2430AAFE10AA4/', include(router.urls)),
     path('04D2430AAFE10AA4/login/', views.LoginView.as_view(), name='login'),
 <<<<<<< HEAD
+<<<<<<< HEAD
     path('admin/', admin.site.urls),
 =======
 
 >>>>>>> master
+=======
+    path('admin/', admin.site.urls),
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
     path('04D2430AAFE10AA4/logout/', views.logout_view, name='logout'),
     path('04D2430AAFE10AA4/signup/', views.SignupView.as_view(), name='signup'),
     path('04D2430AAFE10AA4/group/<str:group_name>/', views.UserGroupCountViewSet.as_view({'get': 'list'}), name='group-count'),
     path('04D2430AAFE10AA4/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
     path('04D2430AAFE10AA4/change_password/', views.change_password, name='change_password'),
+
+    # Static files and catch-all
     re_path(r'^.*$', TemplateView.as_view(template_name='index.html'), name='index'),
+<<<<<<< HEAD
 <<<<<<< HEAD
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 =======
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 >>>>>>> master
+=======
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb

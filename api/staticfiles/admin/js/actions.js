@@ -180,11 +180,14 @@
             });
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         // Sync counter when navigating to the page, such as through the back
         // button.
         window.addEventListener('pageshow', (event) => updateCounter(actionCheckboxes, options));
 >>>>>>> master
+=======
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
     };
 
     // Call function fn when the DOM is loaded and ready. If it is already

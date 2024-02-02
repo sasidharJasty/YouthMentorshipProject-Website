@@ -30,10 +30,14 @@ def password_reset_token_created(sender, instance, reset_password_token, *args, 
 
     # render email text
 <<<<<<< HEAD
+<<<<<<< HEAD
     email_plaintext_message = "Hello "+reset_password_token.user.username+", \nWe've received a request to reset your password. \nPlease click on the link below to reset your password:" + "{}?token={}".format(
             instance.request.build_absolute_uri(reverse('password_reset:reset-password-confirm')),
 =======
     email_plaintext_message = "Hello "+reset_password_token.user.username+", \n\nWe've received a request to reset your password. \nIf this request was not made by you then do not click on the link. \nPlease click on the link to reset your password:" + "{}/reset-password/?token={} \n\nYouth Mentorship Project".format(
+=======
+    email_plaintext_message = "Hello "+reset_password_token.user.username+", \n\nWe have received a request to reset your password. \nIf this request was not made by you, you can safely ignore this email. \nOtherwise, please click on the link to reset your password:" + "https://{}/reset-password/?token={} \n\nThanks,\nYouth Mentorship Project".format(
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
             instance.request.META["HTTP_HOST"],
 >>>>>>> master
             reset_password_token.key) + ""

@@ -80,6 +80,7 @@
                 const elm = $(this);
                 elm.attr('href', elm.attr('data-href-template').replace('__fk__', value));
 <<<<<<< HEAD
+<<<<<<< HEAD
             });
         } else {
             siblings.removeAttr('href');
@@ -90,6 +91,11 @@
             siblings.removeAttr('href');
             siblings.attr('aria-disabled', true);
 >>>>>>> master
+=======
+            });
+        } else {
+            siblings.removeAttr('href');
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
         }
     }
 

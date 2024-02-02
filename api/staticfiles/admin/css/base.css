@@ -23,6 +23,7 @@ html[data-theme="light"],
     --breadcrumbs-fg: #c4dce8;
     --breadcrumbs-link-fg: var(--body-bg);
 <<<<<<< HEAD
+<<<<<<< HEAD
     --breadcrumbs-bg: var(--primary);
 
     --link-fg: #417893;
@@ -35,6 +36,13 @@ html[data-theme="light"],
     --link-hover-color: #036;
     --link-selected-fg: var(--secondary);
 >>>>>>> master
+=======
+    --breadcrumbs-bg: var(--primary);
+
+    --link-fg: #417893;
+    --link-hover-color: #036;
+    --link-selected-fg: #5b80b2;
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
 
     --hairline-color: #e8e8e8;
     --border-color: #ccc;
@@ -51,16 +59,22 @@ html[data-theme="light"],
 
     --button-fg: #fff;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
     --button-bg: var(--primary);
     --button-hover-bg: #609ab6;
     --default-button-bg: var(--secondary);
     --default-button-hover-bg: #205067;
+<<<<<<< HEAD
 =======
     --button-bg: var(--secondary);
     --button-hover-bg: #205067;
     --default-button-bg: #205067;
     --default-button-hover-bg: var(--secondary);
 >>>>>>> master
+=======
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
     --close-button-bg: #747474;
     --close-button-hover-bg: #333;
     --delete-button-bg: #ba2121;
@@ -72,10 +86,15 @@ html[data-theme="light"],
 
     --font-family-primary:
 <<<<<<< HEAD
+<<<<<<< HEAD
         -apple-system,
         BlinkMacSystemFont,
 =======
 >>>>>>> master
+=======
+        -apple-system,
+        BlinkMacSystemFont,
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
         "Segoe UI",
         system-ui,
         Roboto,
@@ -123,10 +142,14 @@ body {
 
 a:link, a:visited {
 <<<<<<< HEAD
+<<<<<<< HEAD
     color: var(--link-fg);
 =======
     color: var(--body-fg);
 >>>>>>> master
+=======
+    color: var(--link-fg);
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
     text-decoration: none;
     transition: color 0.15s, background 0.15s;
 }
@@ -609,10 +632,14 @@ input[type=button][disabled].default {
     font-size: 0.8125rem;
     text-align: left;
 <<<<<<< HEAD
+<<<<<<< HEAD
     background: var(--primary);
 =======
     background: var(--header-bg);
 >>>>>>> master
+=======
+    background: var(--primary);
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
     color: var(--header-link-color);
 }
 
@@ -749,6 +776,7 @@ div.breadcrumbs a:focus, div.breadcrumbs a:hover {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 .hidelink {
     padding-left: 16px;
@@ -756,6 +784,8 @@ div.breadcrumbs a:focus, div.breadcrumbs a:hover {
 }
 
 >>>>>>> master
+=======
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
 .addlink {
     padding-left: 16px;
     background: url(../img/icon-addlink.svg) 0 1px no-repeat;
@@ -866,12 +896,18 @@ a.deletelink:focus, a.deletelink:hover {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
 #container > div {
     flex-shrink: 0;
 }
 
+<<<<<<< HEAD
 =======
 >>>>>>> master
+=======
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
 #container > .main {
     display: flex;
     flex: 1 0 auto;
@@ -957,9 +993,13 @@ a.deletelink:focus, a.deletelink:hover {
     background: var(--header-bg);
     color: var(--header-color);
 <<<<<<< HEAD
+<<<<<<< HEAD
     overflow: hidden;
 =======
 >>>>>>> master
+=======
+    overflow: hidden;
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
 }
 
 #header a:link, #header a:visited, #logout-form button {
@@ -975,10 +1015,14 @@ a.deletelink:focus, a.deletelink:hover {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #branding h1 {
 =======
 #site-name {
 >>>>>>> master
+=======
+#branding h1 {
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
     padding: 0;
     margin: 0;
     margin-inline-end: 20px;
@@ -988,10 +1032,14 @@ a.deletelink:focus, a.deletelink:hover {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #branding h1 a:link, #branding h1 a:visited {
 =======
 #site-name a:link, #site-name a:visited {
 >>>>>>> master
+=======
+#branding h1 a:link, #branding h1 a:visited {
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
     color: var(--accent);
 }
 
@@ -1199,6 +1247,7 @@ a.deletelink:focus, a.deletelink:hover {
 .base-svgs {
     display: none;
 }
+<<<<<<< HEAD
 
 .visually-hidden {
     position: absolute;
@@ -1213,3 +1262,5 @@ a.deletelink:focus, a.deletelink:hover {
     background-color: var(--body-bg);
 }
 >>>>>>> master
+=======
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb

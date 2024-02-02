@@ -44,10 +44,14 @@ input[type="submit"], button {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #branding h1 {
 =======
     #site-name {
 >>>>>>> master
+=======
+    #branding h1 {
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
         margin: 0 0 8px;
         line-height: 1.2;
     }
@@ -242,6 +246,9 @@ input[type="submit"], button {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
     /* Related widget */
 
     .related-widget-wrapper {
@@ -258,8 +265,11 @@ input[type="submit"], button {
         margin-left: 10px;
     }
 
+<<<<<<< HEAD
 =======
 >>>>>>> master
+=======
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
     /* Selector */
 
     .selector {
@@ -278,10 +288,14 @@ input[type="submit"], button {
 
     .selector .selector-filter input {
 <<<<<<< HEAD
+<<<<<<< HEAD
         width: auto;
 =======
         width: 100%;
 >>>>>>> master
+=======
+        width: auto;
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
         min-height: 0;
         flex: 1 1;
     }
@@ -304,9 +318,13 @@ input[type="submit"], button {
         height: 52px;
         padding: 2px 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
         margin: auto 15px;
 =======
 >>>>>>> master
+=======
+        margin: auto 15px;
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
         border-radius: 20px;
         transform: translateY(-10px);
     }
@@ -351,9 +369,13 @@ input[type="submit"], button {
         height: 26px;
         padding: 0 2px;
 <<<<<<< HEAD
+<<<<<<< HEAD
         margin: 15px auto;
 =======
 >>>>>>> master
+=======
+        margin: 15px auto;
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
         transform: none;
     }
 
@@ -450,10 +472,14 @@ input[type="submit"], button {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     .login #branding h1 {
 =======
     .login #site-name {
 >>>>>>> master
+=======
+    .login #branding h1 {
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
         margin: 0;
     }
 
@@ -719,22 +745,32 @@ input[type="submit"], button {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
     select + .related-widget-wrapper-link,
     .related-widget-wrapper-link + .related-widget-wrapper-link {
         margin-left: 15px;
     }
 
+<<<<<<< HEAD
 =======
 >>>>>>> master
+=======
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
     /* Selector */
 
     .selector {
         flex-direction: column;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
     }
 
     .selector > * {
         float: none;
+<<<<<<< HEAD
     }
 
     .selector-available, .selector-chosen {
@@ -745,6 +781,12 @@ input[type="submit"], button {
 
     .selector-available, .selector-chosen {
 >>>>>>> master
+=======
+    }
+
+    .selector-available, .selector-chosen {
+        margin-bottom: 0;
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
         flex: 1 1 auto;
     }
 
@@ -754,6 +796,7 @@ input[type="submit"], button {
 
     .selector ul.selector-chooser {
         display: block;
+<<<<<<< HEAD
 <<<<<<< HEAD
         float: none;
         width: 52px;
@@ -765,6 +808,13 @@ input[type="submit"], button {
         height: 26px;
         padding: 0 2px;
 >>>>>>> master
+=======
+        float: none;
+        width: 52px;
+        height: 26px;
+        padding: 0 2px;
+        margin: 15px auto 20px;
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
         transform: none;
     }
 

@@ -14,10 +14,14 @@ th {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .viewlink, .addlink, .changelink {
 =======
 .viewlink, .addlink, .changelink, .hidelink {
 >>>>>>> master
+=======
+.viewlink, .addlink, .changelink {
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
     padding-left: 0;
     padding-right: 16px;
     background-position: 100% 1px;
@@ -304,9 +308,12 @@ form .form-row p.datetime {
     margin-right: 2px;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 .selector .selector-chooser {
     margin: 0;
 }
 >>>>>>> master
+=======
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb

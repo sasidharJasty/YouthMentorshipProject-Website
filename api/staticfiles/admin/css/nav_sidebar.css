@@ -103,6 +103,7 @@
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 @media (forced-colors: active) {
     #nav-sidebar .current-model {
@@ -111,6 +112,8 @@
 }
 
 >>>>>>> master
+=======
+>>>>>>> 107b3a5dc706765b233aedb00ef6fd845f0b7ccb
 .main > #nav-sidebar + .content {
     max-width: calc(100% - 23px);
 }
