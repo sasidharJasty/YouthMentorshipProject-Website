@@ -1,14 +1,14 @@
 .Logo-sd {
-  font-size: 15px;
+  font-size: 10px;
 }
 .Nav-txt {
-  font-size: 2vh;
+  font-size: 5px;
 }
 .btn-txt {
   font-size: 17px;
 }
 .NAV-Logo {
-  max-width: 8vw;
+  max-width: 100px;
   height: auto;
 }
 .NAV-socials {
@@ -20,7 +20,8 @@
     brightness(115%) contrast(101%);
 }
 .nsocials {
-  min-width: 30px;
+  min-width: 20px;
+  max-width: 30px;
   margin-left: 1vw;
   margin-top: 1vh;
   height: auto;

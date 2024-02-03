@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
-import "./homePage.css";
+
 import axios from "axios";
 import "./Nav2.css";
-import linkedin from "../../public/socials/s-linkedin.png";
-import insta from "../../public/socials/s-insta.png";
-import discord from "../../public/socials/s-discord.png";
-import Logo from "../../public/Logo.png";
+import linkedin from "../images/socials/s-linkedin.png";
+import insta from "../images/socials/s-insta.png";
+import discord from "../images/socials/s-discord.png";
+import Logo from "../images/Logo.png";
+import Global from '../settings';
 import { useNavigate } from "react-router-dom";
-
-
 
 interface Prop {
   Username: { User: string; Username: string; Id: number };
@@ -16,50 +15,47 @@ interface Prop {
 
 function ResponsiveAppBar(props: Prop) {
   const [selectedItem, setSelectedItem] = useState(false);
-  const [Selects, setSelect] = useState(false);
-  const [user, setuser] = useState(props.Username["Id"]);
-  const usrData = JSON.parse(localStorage.getItem("Data") || "{}");
+  const [selects, setSelect] = useState(false);
+  const [user, setUser] = useState(props.Username.Id);
+  const usrData = JSON.parse(localStorage.getItem("Data") || '{"User":"Login","Username":"Login","Id":-999,"Groups":"Students"}');
   const history = useNavigate();
 
   const closePopup = () => {
     setSelectedItem(false);
   }
+
   const openPopup = () => {
     setSelectedItem(true);
   }
+
   const handleOpen = () => {
     if (user === -999) {
       history("/login/");
     } else {
-      setSelect((Selects) => !Selects);
+      setSelect(!selects);
     }
   };
+
   useEffect(() => {
-    if (props.Username["Id"] === -999) {
-      setuser(-999);
+    if (props.Username.Id === -999) {
+      setUser(-999);
     }
   }, []);
+
   async function logout() {
     try {
-      await axios.post("https://127.0.0.1:8000/04D2430AAFE10AA4/logout/");
+      await axios.post("https://"+Global.apiUrl+"/logout/");
       setSelect(false);
-      setuser(-999);
+      setUser(-999);
     } catch (error: any) {
-      // Handle error if needed
       console.error("Logout failed:", error.response.data);
     }
 
-    // Remove the token from local storage
     setSelect(false);
     localStorage.removeItem("token");
     localStorage.clear();
-
-    setuser(-999);
-
-    // Clear the Authorization header in axios defaults
+    setUser(-999);
     delete axios.defaults.headers.common["Authorization"];
-
-    // Update the user data in local storage
     localStorage.setItem(
       "Data",
       JSON.stringify({
@@ -72,13 +68,13 @@ function ResponsiveAppBar(props: Prop) {
   }
 
   return (
-    <nav className=" fixed bg-white border-gray-200  shadow-2xl top-0 dark:bg-gray-900 pb-2 w-screen mb-40 justify-center justify-content-center text-center bg-opacity-80 dark:bg-opacity-95">
-      <div className="w-screen flex flex-wrap items-center justify-between  ">
+    <nav className="fixed bg-white border-gray-200 shadow-2xl top-0 dark:bg-gray-900 pb-2 w-screen mb-40 justify-center justify-content-center text-center bg-opacity-80 dark:bg-opacity-95">
+      <div className="w-screen flex flex-wrap items-center justify-between">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <h2 className=" my-4 ml-20 Logo-txt  verticalLine pr-2 font-black logo ">
-            <img src={Logo} className="NAV-Logo"></img>
+          <h2 className="my-4 ml-20 Logo-txt verticalLine pr-2 font-black logo">
+            <img src={Logo} className="NAV-Logo" alt="Logo"></img>
           </h2>
-          <span className="text-left Logo-sd font-normal  whitespace-nowrap text-black dark:text-white">
+          <span className="text-left Logo-sd font-normal whitespace-nowrap text-black dark:text-white">
             Youth
             <br />
             Mentorship
@@ -86,35 +82,30 @@ function ResponsiveAppBar(props: Prop) {
             Project
           </span>
         </a>
-        <div className="items-center md:order-2 space-x-3  rtl:space-x-reverse mr-40">
-          <ul className="flex ml-20 ">
+
+        <div className="items-center md:order-2 space-x-3 rtl:space-x-reverse mr-40">
+          <ul className="flex ml-20">
             <li className="Link">
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/company/youth-mentorship-proj/"
-              >
-                <img src={linkedin} className=" nsocials"></img>
+              <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/youth-mentorship-proj/">
+                <img src={linkedin} className="nsocials" alt="LinkedIn"></img>
               </a>
             </li>
             <li className="Link">
-              <a
-                target="_blank"
-                href="https://www.instagram.com/youthmentorshipproject/"
-              >
-                <img src={insta} className=" nsocials"></img>
+              <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/youthmentorshipproject/">
+                <img src={insta} className="nsocials" alt="Instagram"></img>
               </a>
             </li>
 
             <li className="Link">
-              <a target="_blank" href="https://discord.gg/mCWDhdtmdS">
-                <img src={discord} className=" nsocials"></img>
+              <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/mCWDhdtmdS">
+                <img src={discord} className="nsocials" alt="Discord"></img>
               </a>
             </li>
           </ul>
-          <div className="flex items-center md:order-2 space-x-3  rtl:space-x-reverse pl-14">
+          <div className="flex items-center md:order-2 space-x-3 rtl:space-x-reverse pl-14">
             <button
               type="button"
-              className="flex px-3 py-2 btn-txt bg-purple-500 rounded-xl md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+              className="flex px-3 py-2 bg-purple-500 rounded-xl md:me-0 focus:ring-4 test-sm focus:ring-gray-300 dark:focus:ring-gray-600"
               id="user-menu-button"
               aria-expanded="false"
               data-dropdown-toggle="user-dropdown"
@@ -122,49 +113,49 @@ function ResponsiveAppBar(props: Prop) {
               onClick={handleOpen}
             >
               <span className="sr-only">Open user menu</span>
-              <div className="">
+              <div>
                 {user !== -999 ? (
-                  <p className="">{props.Username["Username"]} ▼</p>
+                  <p className="">{props.Username.Username} ▼</p>
                 ) : (
-                  <a className="text-white " href="/login/">
+                  <a className="text-white" href="/login/">
                     Log In
                   </a>
-                )}{" "}
+                )}
               </div>
             </button>
 
             <a
               target="_blank"
+              rel="noopener noreferrer"
               href="https://hcb.hackclub.com/donations/start/youthmentorshipproject"
               className=""
             >
               <button
                 type="button"
-                className="flex px-3 py-2  btn-txt bg-blue-500 text-white rounded-xl md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                className="flex px-3 py-2 t bg-blue-500 text-white rounded-xl md:me-0 focus:ring-4 text-sm focus:ring-gray-300 dark:focus:ring-gray-600"
                 id="user-menu-button"
                 aria-expanded="false"
                 data-dropdown-toggle="user-dropdown"
                 data-dropdown-placement="bottom"
               >
                 <span className="sr-only">Open user menu</span>
-                  Donate
+                Donate
               </button>
             </a>
 
-            {Selects === true && props.Username["Id"] !== -999 ? (
+            {selects && props.Username.Id !== -999 ? (
               <>
-                {" "}
-                <div className=" absolute top-11 my-10  text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-xl dark:bg-gray-700 dark:divide-gray-600">
+                <div className="absolute top-11 my-10 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-xl dark:bg-gray-700 dark:divide-gray-600">
                   <div className="px-4 py-3">
                     <span className="block text-sm text-gray-900 dark:text-white">
-                      {props.Username["User"]}
+                      {props.Username.User}
                     </span>
-                    <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
-                      {props.Username["Id"]}
+                    <span className="block text-sm text-gray-500 truncate dark:text-gray-400">
+                      {props.Username.Id}
                     </span>
                   </div>
                   <ul className="py-2" aria-labelledby="user-menu-button">
-                    {usrData["Groups"][0] !== "Student" ? (
+                    {usrData.Groups[0] !== "Student" ? (
                       <li>
                         <a
                           href="/hours"
@@ -220,7 +211,6 @@ function ResponsiveAppBar(props: Prop) {
               >
                 <path
                   stroke="currentColor"
-
                   d="M1 1h15M1 7h15M1 13h15"
                 />
               </svg>
@@ -232,7 +222,7 @@ function ResponsiveAppBar(props: Prop) {
           className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 mx-10"
           id="navbar-user"
         >
-          <ul className="flex flex-col text-md font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  bg-opacity-80 dark:bg-opacity-95">
+          <ul className="flex flex-col text-sm font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  bg-opacity-80 dark:bg-opacity-95">
             <li>
               <a
                 href="/"
@@ -298,26 +288,15 @@ function ResponsiveAppBar(props: Prop) {
               <hr />
               <br />
               <br />
-
               <div className="grid grid-cols-3 gap-4 text-left w-full h-full">
                 <div className="w-full h-full CONTENT"></div>
-
-
-              <div className="col-span-2 grid grid-cols-2 w-full gap-x-20 gap-y-10">
-                <h2><strong>Username </strong><br /> {usrData["Username"]}</h2>
-                <p><strong>YMP ID</strong> <br />{usrData["Id"]}</p>
-
-
-
-
-                <p className="" ><strong>Email</strong><br />{usrData["User"]}</p>
-                <p className=""><strong>Role</strong><br />{usrData["Groups"][0]}</p>
+                <div className="col-span-2 grid grid-cols-2 w-full gap-x-20 gap-y-10">
+                  <h2><strong>Username </strong><br /> {usrData.Username}</h2>
+                  <p><strong>YMP ID</strong> <br />{usrData.Id}</p>
+                  <p className="" ><strong>Email</strong><br />{usrData.User}</p>
+                  <p className=""><strong>Role</strong><br />{usrData.Groups[0]}</p>
+                </div>
               </div>
-              </div>
-
-
-
-
               <br />
               <br />
               <button onClick={closePopup}>Close Popup</button>
@@ -328,4 +307,5 @@ function ResponsiveAppBar(props: Prop) {
     </nav>
   );
 }
+
 export default ResponsiveAppBar;
