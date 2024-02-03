@@ -1,0 +1,24 @@
+.logo {
+  background: -webkit-linear-gradient(#3e3bd4, #a46bec);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.boo {
+  border-color: #f4a459;
+}
+.Login-Title {
+  font-size: 25px;
+}
+.logo {
+  background: -webkit-linear-gradient(to right, #3e3bd4, #a46bec);
+  -webkit-text-fill-color: transparent;
+  background-color: linear-gradient(to right, #3e3bd4, #a46bec);
+  font-size: 40px;
+}
+.Redirect-txt-btn {
+  font-size: 15px;
+  padding-top: 0.25vh;
+  padding-bottom: 0.25vh;
+  padding-left: 25px;
+  padding-right: 25px;
+}
